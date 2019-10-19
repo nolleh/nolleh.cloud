@@ -1,0 +1,21 @@
+{
+  "name": "nolleh.cloud",
+  "version": "1.0.0",
+  "description": "nolleh portfolio",
+  "main": "app.ts",
+  "repository": "git@github.com:nolleh/nolleh.cloud.git",
+  "author": "nolleh",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-plugin-vue": "^5.2.3",
+    "typescript": "^3.6.4",
+    "vue": "^2.6.10"
+  },
+  "scripts": {
+    "serve": "vue serve ./src/app.ts",
+    "build": "vue build ./src/app.ts"
+  },
+  "dependencies": {}
+}
