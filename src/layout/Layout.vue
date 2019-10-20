@@ -2,7 +2,7 @@
   <div>
     <slot name="navibar"></slot>
     <slot name="header"></slot>
-    <slot name="contents"></slot>
+    <slot name="main"></slot>
     <slot name="footer"></slot>
   </div>
 </template>

@@ -1,10 +1,9 @@
 <template>
   <div class="container">
     <div class="title">
-      <img src="../../static/images/logo.png" width="390" height="75" align="center" />
+      <img src="../../static/images/logo.png" />
       <br />
       <img src="../../static/images/seperator.png" />
-
       <div class="logo-title">hello, world!</div>
     </div>
   </div>
@@ -17,15 +16,17 @@ export default Vue.extend({});
 
 <style>
 .container {
+  position: 'fixed';
   margin: auto;
   display: block;
   font-size: 17px;
   line-height: 1.5em;
   padding: 40px 30px 15px 30px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
 }
 .container .title {
-  padding-top: 40px;
-  padding-bottom: 80px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   text-align: center;
 }
 .container .title .logo-title {

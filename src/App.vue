@@ -6,8 +6,8 @@
     <template #header>
       <header-title />
     </template>
-    <template #contents>
-      <contents></contents>
+    <template #main>
+      <main-contents></main-contents>
     </template>
   </layout>
 </template>
@@ -17,7 +17,7 @@ import Vue from 'vue/dist/vue';
 import Layout from './layout/Layout.vue';
 import Navi from './layout/Navi.vue';
 import HeaderTitle from './layout/Header.vue';
-import Contents from './layout/Contents.vue';
+import MainContents from './layout/Main.vue';
 
 export default Vue.extend({
   data() {
@@ -27,7 +27,7 @@ export default Vue.extend({
     Layout,
     Navi,
     HeaderTitle,
-    Contents,
+    MainContents,
   },
 });
 </script>

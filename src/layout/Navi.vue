@@ -26,10 +26,10 @@ export default Vue.extend({
 
 <style>
 .navibar {
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
-  height: 30px;
+  height: 40px;
   background: #4a4a4a;
   /* background: darkslategray; */
 }
@@ -45,8 +45,8 @@ export default Vue.extend({
 }
 .navibar li a {
   float: left;
-  padding: 8px 10px 8px 10px;
-  font-size: 12px;
+  padding: 9px 10px 9px 10px;
+  font-size: 14px;
   color: #ffffff;
   letter-spacing: 1.5px;
   text-decoration: none;

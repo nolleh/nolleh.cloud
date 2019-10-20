@@ -1,5 +1,5 @@
 <template>
-  <div class="contents">
+  <div class="main">
     <div class="sidebar">
       <a href="#">01.About</a>
       <a href="#">02.GameServer</a>
@@ -9,7 +9,7 @@
       <a href="#">06.MobileApp</a>
       <a href="#">07.Project</a>
     </div>
-    <div class="main">
+    <div class="contents">
       <About />
     </div>
   </div>
@@ -32,16 +32,16 @@ export default Vue.extend({
 </script>
 
 <style>
-.contents {
+.main {
   margin: 8px;
 }
 
-.contents > div {
+.main > div {
   float: left;
 }
 
 /* The sidebar menu */
-.contents .sidebar {
+.main .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 260px; /* Set the width of the sidebar */
   /* position: fixed; /* Fixed Sidebar (stay in place on scroll) */
@@ -50,11 +50,11 @@ export default Vue.extend({
   left: 0;
   /* background-color: #3b3a3a; */
   overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
+  padding: 20px 20px;
 }
 
 /* The navigation menu links */
-.contents .sidebar a {
+.main .sidebar a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 15px;
@@ -63,22 +63,22 @@ export default Vue.extend({
 }
 
 /* When you mouse over the navigation links, change their color */
-.contents .sidebar a:hover {
+.main .sidebar a:hover {
   color: #f1f1f1;
 }
 
 /* Style page content */
-.contents .main {
+.main .contents {
   /* margin-left: 260px; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+  padding: 20px 10px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .contents .sidebar {
+  .main .sidebar {
     padding-top: 15px;
   }
-  .contents .sidebar a {
+  .main .sidebar a {
     font-size: 18px;
   }
 }
