@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h2>nolleh</h2>
-    <p />
+    <div class="post">
+      <img src="../../../static/images/post-title-icon.png" />
+      <span class="title">About Nolleh</span>
+    </div>
     <h3>backend - 게임 서버 프로그래머</h3>
-
     <h4>Language Specialized in</h4>
     <button @click="showMajor = !showMajor">show</button>
     <li v-for="lang in majorLanguage" :key="lang">{{lang}}</li>
@@ -29,7 +30,7 @@ export default Vue.extend({
       showMajor: false,
       majorLanguage: ['C++ / C / STL / Boost', 'C#', 'Java'],
       showMinor: false,
-      minorLanguage: ['JavaScript', 'Golang', 'Haskell', 'Erlang'],
+      minorLanguage: ['TypeScript', 'Golang', 'Haskell', 'Erlang'],
       platforms: ['Kubernetes', 'Docker', 'Node.Js', 'Unity', 'Android', 'iOS'],
       project: [''],
     };
@@ -38,6 +39,19 @@ export default Vue.extend({
 </script>
 
 <style>
+h4 {
+  color: #029c8d;
+  /* text-align: center; */
+}
+
+.post .title {
+  padding-left: 20px;
+  font-weight: bold;
+  font-size: 25px;
+  color: #029c8d;
+  letter-spacing: 3.03px;
+}
+
 .big-font-size {
   font-size: 30px;
 }
