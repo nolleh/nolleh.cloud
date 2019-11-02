@@ -17,5 +17,7 @@
     "serve": "vue serve ./src/app.ts",
     "build": "vue build ./src/app.ts"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vue-router": "^3.1.3"
+  }
 }
