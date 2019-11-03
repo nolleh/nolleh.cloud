@@ -15,7 +15,9 @@
   },
   "scripts": {
     "serve": "vue serve ./src/app.ts",
-    "build": "vue build ./src/app.ts"
+    "build": "vue build ./src/app.ts",
+    "serve2": "vue serve ./src-v2/app.ts",
+    "build2": "vue build ./src-v2/app.ts"
   },
   "dependencies": {
     "vue-router": "^3.1.3"
