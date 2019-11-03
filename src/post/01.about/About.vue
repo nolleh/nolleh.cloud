@@ -27,7 +27,7 @@ export default Vue.extend({
       showMajor: false,
       majorLanguage: ['C++ / C / STL / Boost', 'C#', 'Java'],
       showMinor: false,
-      minorLanguage: ['TypeScript', 'Golang', 'Haskell', 'Erlang'],
+      minorLanguage: ['TypeScript', 'Golang', 'Haskell', 'Erlang', 'Scheme', 'Scala'],
       platforms: ['Kubernetes', 'Docker', 'Node.Js', 'Unity', 'Android', 'iOS'],
       project: [''],
     };
