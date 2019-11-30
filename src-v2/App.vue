@@ -1,13 +1,7 @@
 <template>
-  <div id="container" class="main-container">
-    <section class="full-pf">
-      <transition name="pf-wrapper">
-        <div class="pf-type fullpage-wrapper" id="fullpage">
-          <overview></overview>
-          <game-server></game-server>
-        </div>
-      </transition>
-    </section>
+  <div class="full-pf">
+    <overview class="item"></overview>
+    <game-server class="item"></game-server>
   </div>
 </template>
 
@@ -25,21 +19,25 @@ export default Vue.extend({
 </script>
 
 <style>
+html,
 body {
-  /* overflow: hidden; */
+  margin: 0px;
+  padding: 0px;
   height: 100%;
+  overflow-y: hidden;
 }
 
-* {
-  margin: 0;
-  padding: 0;
+.full-pf {
+  overflow: auto; /* scroll visibility */
+  width: 100%;
+  height: 100%;
+  scroll-snap-type: y mandatory;
 }
 
-.pf-wrapper-move {
-  /* height: 100%;
-  position: relative;
-  touch-action: none; */
-  transform: translate3d(0px, 0px, 0px);
-  /* transition: all 700ms ease 0s; */
+.item {
+  display: flex;
+  height: 100%;
+  scroll-snap-align: start;
+  margin: 0px;
 }
 </style>
