@@ -33,7 +33,7 @@
 
 	const ownCode: Repo[] = [
 		{
-			url: 'https://github.com/nolleh/caption-json-formatter',
+			url: 'https://github.com/nolleh/caption_json_formatter',
 			name: 'caption-json-formatter',
 			lang: Lang.GO,
 			merged: false
