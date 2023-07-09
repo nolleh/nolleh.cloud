@@ -1,19 +1,8 @@
 <script lang="ts">
-	interface Repo {
-		url: string;
-		name: string;
-		lang: Lang;
-		merged: boolean;
-	}
-	enum Lang {
-		HELM,
-		GO,
-		VIM_SCRIPT,
-		PYTHON,
-		TYPE_SCRIPT
-	}
+  import type { Repo } from '../libs/repo';
 
 	export let repos: Repo[];
+  export type { Repo };
 </script>
 
 <!--source: https://www.theguardian.com/music/2021/nov/30/the-50-best-albums-of-2021-->
@@ -23,8 +12,11 @@
 	<ol>
 		{#each repos as repo}
 			<li>
-				<span>{repo.name}</span>
-				<span><a href={repo.url}>{repo.url}</span>
+				<div>
+					<span>{repo.name}</span>
+					{#if repo.merged} <span class="badge"> merged </span> {/if}
+				</div>
+				<span><a href={repo.url}>{repo.url}</a></span>
 			</li>
 		{/each}
 	</ol>
@@ -41,7 +33,7 @@
 		margin: 0;
 		padding: clamp(0.5rem, 1vw, 1.5rem);
 		font-family: 'Open Sans', sans-serif;
-		font-size: 1.0rem;
+		font-size: 1rem;
 		max-width: 80rem;
 		margin: 0 auto;
 	}
@@ -63,9 +55,9 @@
 		margin-top: 1rem;
 	}
 
-	li {
-		break-inside: avoid;
-	}
+	/* li { */
+	/* 	break-inside: avoid; */
+	/* } */
 
 	::marker {
 		content: counters(list-item, '') ': ';
@@ -79,15 +71,40 @@
 	}
 
 	li span:first-child {
-		font-size: 1.2em;
+		font-size: 1.3em;
 	}
 
 	li span:last-child {
 		font-style: italic;
 	}
 
+  li div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+  }
+
 	.divider {
 		min-height: 6rem;
 		background: lavender;
 	}
+
+  .badge {
+    /* position:absolute; */
+    /* right: -25px; */
+    /* top: -12px; */
+    width: 60px;
+    /* transform: rotate(10deg); */
+    background-color: seagreen;
+    color: white;
+    border-radius:5px;
+    text-align: center;
+    padding: 0.35rem;
+    font-size: 0.8em;
+    box-shadow: 
+      1px 1px 0 mediumseagreen,
+      2px 2px 0 gray;
+  }
 </style>

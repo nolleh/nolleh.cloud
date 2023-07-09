@@ -1,22 +1,9 @@
 <script lang="ts">
 	import Intersection from '../components/intersection.svelte';
-  import MemoListing from '../components/memo-listing.svelte';
   import BoxListing from '../components/box-listing.svelte'; 
 
-	interface Repo {
-		url: string;
-		name: string;
-		lang: Lang;
-		merged: boolean;
-	}
-
-	enum Lang {
-		HELM,
-		GO,
-		VIM_SCRIPT,
-		PYTHON,
-		TYPE_SCRIPT
-	}
+  import type { Repo } from '../libs/repo';
+  import { Lang } from '../libs/repo';
 
 	const contribution: Repo[] = [
 		{ url: 'https://github.com/helm/charts', name: 'helm', lang: Lang.HELM, merged: true },
@@ -32,6 +19,12 @@
 			name: 'vimwiki',
 			lang: Lang.VIM_SCRIPT,
 			merged: true
+		},
+		{
+			url: 'https://github.com/nekipelov/redisclient',
+			name: 'redisclient c++',
+			lang: Lang.CPP,
+			merged: false
 		}
 	];
 
@@ -183,8 +176,9 @@
 	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
 	.container {
 		display: flex;
-		overflow: auto;
+		overflow-y: scroll;
 		height: 100vh;
+    flex: none;
 		flex-flow: column nowrap;
 		/* scroll-snap-type: y mandatory; */
 	}
@@ -193,6 +187,7 @@
 		display: grid;
 		place-items: center;
 		align-content: center;
+    width: 100%;
 		min-height: 100vh;
 	}
 
@@ -229,11 +224,11 @@
 
 	.snap {
 		scroll-snap-align: start;
-		/* scroll-snap-stop: always; */
+		scroll-snap-stop: always;
 	}
 
 	.logos {
-		display: flex;
+		/* display: flex; */
 	}
 
 	.logo {

@@ -7,11 +7,12 @@
 	export let right = 0;
 	let container: any;
 	export let id: string = '';
-	let intersecting: boolean;
+	let intersecting: boolean = false;
 
 	const appearOptions = {
+		// root: document.querySelector('.container'),
 		rootMargin: '0px',
-		threshold: 0.75
+		threshold: 0.25
 	};
 
 	// bugs in svelte intersection observer when running SSR.
@@ -19,7 +20,7 @@
 		if (typeof IntersectionObserver !== 'undefined') {
 			const observer = new IntersectionObserver((entries) => {
 				intersecting = entries[0].isIntersecting;
-			}, /* appearOptions */);
+			}, appearOptions);
 			observer.observe(container);
 			return () => observer.unobserve(container);
 		}
