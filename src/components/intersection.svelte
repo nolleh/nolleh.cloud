@@ -1,0 +1,46 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	export let top = 0;
+	export let bottom = 0;
+	export let left = 0;
+	export let right = 0;
+	let container: any;
+	export let id: string = '';
+	let intersecting: boolean;
+
+	const appearOptions = {
+		rootMargin: '0px',
+		threshold: 0.75
+	};
+
+	// bugs in svelte intersection observer when running SSR.
+	onMount(() => {
+		if (typeof IntersectionObserver !== 'undefined') {
+			const observer = new IntersectionObserver((entries) => {
+				intersecting = entries[0].isIntersecting;
+			}, /* appearOptions */);
+			observer.observe(container);
+			return () => observer.unobserve(container);
+		}
+	});
+
+	function handler() {
+		const bcr = container.getBoundingClientRect();
+		intersecting =
+			bcr.bottom + bottom > 0 &&
+			bcr.right + right > 0 &&
+			bcr.top - top < window.innerHeight &&
+			bcr.left - left < window.innerWidth;
+
+		window.addEventListener('scroll', handler);
+		return () => window.removeEventListener('scroll', handler);
+	}
+</script>
+
+<div {id} bind:this={container}>
+	<slot {intersecting} />
+</div>
+
+<style>
+</style>
