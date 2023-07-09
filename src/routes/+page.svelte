@@ -1,9 +1,12 @@
 <script lang="ts">
+  import Nav from '../components/nav.svelte';
 	import Intersection from '../components/intersection.svelte';
   import BoxListing from '../components/box-listing.svelte'; 
 
   import type { Repo } from '../libs/repo';
   import { Lang } from '../libs/repo';
+
+  let content: string = 'scrollable-content';
 
 	const contribution: Repo[] = [
 		{ url: 'https://github.com/helm/charts', name: 'helm', lang: Lang.HELM, merged: true },
@@ -33,25 +36,26 @@
 			url: 'https://github.com/nolleh/caption-json-formatter',
 			name: 'caption-json-formatter',
 			lang: Lang.GO,
-			merged: true
+			merged: false
 		},
-		{ url: 'https://github.com/nolleh/ctxlog', name: 'ctxlog', lang: Lang.GO, merged: true },
+		{ url: 'https://github.com/nolleh/ctxlog', name: 'ctxlog', lang: Lang.GO, merged: false },
 		{
 			url: 'https://github.com/nolleh/serialize-interceptor',
 			name: 'serialize-interceptor',
 			lang: Lang.VIM_SCRIPT,
-			merged: true
+			merged: false
 		},
 		{
 			url: 'https://github.com/nolleh/jest-badge-deploy-action',
 			name: 'jest-badge-deploy-action',
 			lang: Lang.VIM_SCRIPT,
-			merged: true
+			merged: false
 		}
 	];
 </script>
 
-<div class="container">
+<Nav {content}/>
+<div id={content} class="container">
 	<Intersection let:intersecting>
 		<section id="sc-intro" class={`hidden snap ${intersecting ? 'show' : ''}`}>
 			<h1>Nolleh (kyeong-mi Kim)</h1>
@@ -155,18 +159,20 @@
 	<Intersection let:intersecting>
 		<section id="sc-personal" class={`hidden snap ${intersecting ? 'show' : ''}`}>
 			<h1>Personal Activities #1</h1>
-
 			<h3>OpenSource Contribution</h3>
       <BoxListing repos={contribution} />
-			
-      <h3>Original Open Source</h3>
-      <BoxListing repos={ownCode} />
-
 		</section>
 	</Intersection>
 	<Intersection let:intersecting>
 		<section id="sc-personal2" class={`hidden snap ${intersecting ? 'show' : ''}`}>
 			<h1>Personal Activities #2</h1>
+      <h3>Original Open Source</h3>
+      <BoxListing repos={ownCode} />
+		</section>
+	</Intersection>
+	<Intersection let:intersecting>
+		<section id="sc-personal3" class={`hidden snap ${intersecting ? 'show' : ''}`}>
+			<h1>Personal Activities #3</h1>
 			<h3>Android App</h3>
 		</section>
 	</Intersection>
@@ -180,7 +186,7 @@
 		height: 100vh;
     flex: none;
 		flex-flow: column nowrap;
-		/* scroll-snap-type: y mandatory; */
+		scroll-snap-type: y mandatory;
 	}
 
 	section {
@@ -190,11 +196,11 @@
     width: 100%;
 		min-height: 100vh;
 	}
-
+  
 	.hidden {
 		opacity: 0;
 		filter: blur(5px);
-		transform: translateX(-100%);
+		transform: translateX(-50%);
 		transition: all 2s;
 	}
 
@@ -223,7 +229,7 @@
 	}
 
 	.snap {
-		scroll-snap-align: start;
+		/* scroll-snap-align: start; */
 		scroll-snap-stop: always;
 	}
 
