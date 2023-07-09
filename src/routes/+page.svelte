@@ -2,6 +2,7 @@
   import Nav from '../components/nav.svelte';
 	import Intersection from '../components/intersection.svelte';
   import BoxListing from '../components/box-listing.svelte'; 
+  import Collapsible from '../components/collapsible.svelte';
 
   import type { Repo } from '../libs/repo';
   import { Lang } from '../libs/repo';
@@ -94,7 +95,7 @@
 			<h2>Realtime Game Server</h2>
 			<p>Senior Engineer for C++, C# based RPC Framework with Socket Programming</p>
 
-			<div class="tags">#MultiThread #TCP/IP #WebSocket #Frameworks #boost #windows</div>
+			<div class="tags">#MultiThread #TCP/IP #WebSocket #Frameworks #boost.Asio #windows</div>
 
 			<div class="skills logos">
 				<img
@@ -110,11 +111,16 @@
 					width="100px"
 				/>
 			</div>
-
+      
 			<h2>Backend Server</h2>
-			<p>Senior Engineer for C++, C# based RPC Framework with Socket Programming</p>
+      <Collapsible >
 
-			<div class="tags">#Restful Api #Asp.Net #Platform #Contents (Game/Fintech) #BlockChain</div>
+      <p>have experience DevOps in K8S/AWS/Terraform</p>
+      <p>Developed Membership/Auth/Platform Service</p>
+			<p>Developed Game Contents (League, Campaign, Store, Mission, Battle Pass, Guild, Inventory, Chat..)</p>
+			<p>Developed Fintech Contents (140 million)</p>
+			<div class="tags">#Restful Api #Asp.Net #Node.js #Platform #Contents (Game/Fintech) #BlockChain #MSA</div>
+      </Collapsible>
 		</section>
 	</Intersection>
 
