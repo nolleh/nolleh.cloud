@@ -9,7 +9,7 @@
 
 	let content: string = 'scrollable-content';
 	let playedProject: string = '';
-  let scproject: any;
+	let scproject: any;
 
 	const contribution: Repo[] = [
 		{ url: 'https://github.com/helm/charts', name: 'helm', lang: Lang.HELM, merged: true },
@@ -74,7 +74,8 @@
 		{
 			id: 'poker',
 			src: 'projects/poker.png',
-			desc: 'pmang poker'
+			desc: 'pmang poker',
+			gif: 'projects/poker.gif'
 		},
 		{
 			id: 'heybit',
@@ -94,17 +95,17 @@
 	];
 
 	function gifPlay(id: string) {
-    const project = projects.find(x => x.id === id);
-    if (playedProject === id) {
-      playedProject = '';
-      scproject.style.backgroundImage = ''; 
-      return;
-    }
+		const project = projects.find((x) => x.id === id);
+		if (playedProject === id) {
+			playedProject = '';
+			scproject.style.backgroundImage = '';
+			return;
+		}
 
-    if (project && project.gif) {
-      scproject.style.backgroundImage = `url(${project.gif})`; 
-    }
-    
+		if (project && project.gif) {
+			scproject.style.backgroundImage = `url(${project.gif})`;
+		}
+
 		playedProject = id;
 	}
 </script>
@@ -183,22 +184,24 @@
 	</Intersection>
 
 	<Intersection let:intersecting>
-		<section id="sc-projects" class={`hidden snap ${intersecting ? 'show' : ''}`} bind:this={scproject}>
-			<!-- <div class="stack"> -->
-				<!-- <img class="play" alt="play" data-animate="${projects[playedProject]?.gif ?? '.'}" /> -->
-				<h1>Projects</h1>
-				<div class="logos">
-					{#each projects as project}
-						<!-- TODO -->
-						<img
-							class={`logo hidden ${intersecting ? 'show' : ''}`}
-							src={project.src}
-							alt={project.desc}
-							width="100px"
-							on:click={() => gifPlay(project.id)}
-						/>
-					{/each}
-				</div>
+		<section
+			id="sc-projects"
+			class={`hidden snap ${intersecting ? 'show' : ''}`}
+			bind:this={scproject}
+		>
+			<h1>Projects</h1>
+			<div class="logos">
+				{#each projects as project}
+					<!-- TODO -->
+					<img
+						class={`logo hidden ${intersecting ? 'show' : ''}`}
+						src={project.src}
+						alt={project.desc}
+						width="100px"
+						on:click={() => gifPlay(project.id)}
+					/>
+				{/each}
+			</div>
 			<!-- </div> -->
 		</section>
 	</Intersection>
@@ -242,10 +245,10 @@
 		align-content: center;
 		width: 100%;
 		min-height: 100vh;
-    /* background-image: url('projects/newmatgo.gif'); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity: 0.5;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		background-position: center;
+		opacity: 0.5;
 	}
 
 	.hidden {
@@ -267,14 +270,6 @@
 		}
 	}
 
-  div.stack {
-    position: absolute;
-    top:0;
-    bottom:0;
-    width: 100%;
-    height: 100%;
-  }
-
 	img.play {
 		width: 100%;
 		height: 100%;
@@ -282,6 +277,10 @@
 
 	img:hover {
 		opacity: 0.6;
+	}
+
+	img:active {
+		opacity: 0.9;
 	}
 
 	.badges {
