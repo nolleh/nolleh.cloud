@@ -10,5 +10,5 @@ export enum Lang {
   VIM_SCRIPT,
   PYTHON,
   TYPE_SCRIPT,
-  CPP,
+  CPP
 }
