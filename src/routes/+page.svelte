@@ -151,6 +151,10 @@
 
   <Intersection let:intersecting>
     <section id="sc-skill" class="snap">
+
+  .logos {
+    /* display: inline-flex; */
+  }
       <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
         <h1>Skills</h1>
         <h2>Realtime Game Server</h2>
@@ -310,7 +314,7 @@
   }
 
   .snap {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
   }
 
   .logo {
