@@ -191,13 +191,13 @@
 
   <Intersection let:intersecting>
     <section id="sc-projects" class={`snap ${playedProject ? 'play' : ''}`} bind:this={scproject}>
-      <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
+      <div class={`wrap hidden ${intersecting ? 'show' : ''} ${playedProject ? 'play' : ''}`}>
         <h1>Projects</h1>
         <div class="logos">
           {#each projects as project}
             <button
-              class={`logo hidden ${intersecting ? 'show' : ''} ${
-                playedProject === project.id ? 'play' : ''
+              class={`logo hidden ${intersecting ? 'show' : ''} ${playedProject ? 'play' : ''} ${
+                playedProject === project.id ? 'selected-play' : ''
               }`}
               type="button"
               on:click={() => gifPlay(project.id)}
@@ -269,9 +269,25 @@
     grid-template-rows: auto 1fr;
   }
 
+  button.selected-play {
+    animation: flip 3s infinite;
+  }
+
+  @keyframes flip {
+    33% {
+      transform: rotateY(45deg);
+    }
+    66% {
+      transform: rotateY(-45deg);
+    }
+  }
+
   @media screen and (max-width: 768px) {
     section.play {
       background-size: 250% auto;
+    }
+    .play.logo {
+      width: 50px;
     }
   }
 
