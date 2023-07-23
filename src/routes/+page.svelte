@@ -190,13 +190,15 @@
   </Intersection>
 
   <Intersection let:intersecting>
-    <section id="sc-projects" class="snap" bind:this={scproject}>
+    <section id="sc-projects" class={`snap ${playedProject ? 'play' : ''}`} bind:this={scproject}>
       <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
         <h1>Projects</h1>
         <div class="logos">
           {#each projects as project}
             <button
-              class={`logo hidden ${intersecting ? 'show' : ''}`}
+              class={`logo hidden ${intersecting ? 'show' : ''} ${
+                playedProject === project.id ? 'play' : ''
+              }`}
               type="button"
               on:click={() => gifPlay(project.id)}
             >
@@ -254,8 +256,23 @@
     width: 100%;
     min-height: 100vh;
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    /* background-size: 100% auto; */
+    background-size: cover;
     background-position: center;
+  }
+
+  section.play {
+    /* display: flex; */
+    /* flex-direction: row column; */
+    /* align-items: center; */
+    /* justify-items: center; */
+    grid-template-rows: auto 1fr;
+  }
+
+  @media screen and (max-width: 768px) {
+    section.play {
+      background-size: 250% auto;
+    }
   }
 
   .wrap {
@@ -318,6 +335,7 @@
 
   .logoimg {
     display: block;
+    overflow-x: scroll;
     border-radius: 10px;
   }
 
