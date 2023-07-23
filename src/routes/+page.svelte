@@ -245,7 +245,7 @@
     height: 100vh;
     flex: none;
     flex-flow: column nowrap;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
 
   section {
