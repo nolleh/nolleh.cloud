@@ -303,6 +303,7 @@
 
   img.logo {
     margin: 0;
+    display: block;
   }
 
   .logo:nth-child(2) {
