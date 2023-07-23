@@ -321,16 +321,20 @@
     border-radius: 10px;
   }
 
-  .logo:nth-child(2) {
+  .logo:nth-child(2),
+  .logoimg:nth-child(2) {
     transition-delay: 200ms;
   }
-  .logo:nth-child(3) {
+  .logo:nth-child(3),
+  .logoimg:nth-child(3) {
     transition-delay: 400ms;
   }
-  .logo:nth-child(4) {
+  .logo:nth-child(4),
+  .logoimg:nth-child(4) {
     transition-delay: 600ms;
   }
-  .logo:nth-child(5) {
+  .logo:nth-child(5),
+  .logo.logoimg:nth-child(5) {
     transition-delay: 800ms;
   }
 </style>
