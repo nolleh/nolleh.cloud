@@ -63,7 +63,6 @@
     gif?: string;
   }
 
-  // src='projects/newmatgo.png'
   const projects: Project[] = [
     {
       id: 'newmatgo',
@@ -201,7 +200,7 @@
               type="button"
               on:click={() => gifPlay(project.id)}
             >
-              <img src={project.src} alt={project.desc} width="100px" />
+              <img class="logoimg" src={project.src} alt={project.desc} width="100px" />
             </button>
           {/each}
         </div>
@@ -245,7 +244,7 @@
     height: 100vh;
     flex: none;
     flex-flow: column nowrap;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
 
   section {
@@ -297,9 +296,6 @@
   img:active {
     opacity: 0.9;
   }
-  img {
-    border-radius: 10px;
-  }
 
   .badges {
     padding: 20px;
@@ -318,6 +314,11 @@
     border-radius: 10px;
     background-color: #131316;
     padding: 0;
+  }
+
+  .logoimg {
+    display: block;
+    border-radius: 10px;
   }
 
   .logo:nth-child(2) {
