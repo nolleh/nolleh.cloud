@@ -9,7 +9,7 @@
 
   let content: string = 'scrollable-content';
   let playedProject: string = '';
-  let scproject: any;
+  let scproject: HTMLElement;
 
   const contribution: Repo[] = [
     { url: 'https://github.com/helm/charts', name: 'helm', lang: Lang.HELM, merged: true },
@@ -95,13 +95,13 @@
 
   function gifPlay(id: string) {
     const project = projects.find((x) => x.id === id);
-    if (playedProject === id) {
+    if (!id || playedProject === id) {
       playedProject = '';
-      scproject.style.backgroundImage = '';
+      if (scproject) scproject.style.backgroundImage = '';
       return;
     }
 
-    if (project && project.gif) {
+    if (project && project.gif && scproject) {
       scproject.style.backgroundImage = `url(${project.gif})`;
     }
 
@@ -207,6 +207,9 @@
           {/each}
         </div>
       </div>
+      {#if !intersecting}
+        {gifPlay('')}
+      {/if}
     </section>
   </Intersection>
 
@@ -270,15 +273,15 @@
   }
 
   button.selected-play {
-    animation: flip 3s infinite;
+    animation: flip 1.5s infinite linear;
   }
 
   @keyframes flip {
-    33% {
-      transform: rotateY(45deg);
+    0% {
+      transform: rotateY(0deg);
     }
-    66% {
-      transform: rotateY(-45deg);
+    50% {
+      transform: rotateY(65deg);
     }
   }
 
