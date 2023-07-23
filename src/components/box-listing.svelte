@@ -31,7 +31,6 @@
     font-size: 1rem;
     margin: 0 auto;
     max-width: 98vw;
-    overflow-x: scroll;
   }
 
   a {
@@ -44,6 +43,8 @@
     columns: 25rem;
     column-rule: 4px dotted turquoise;
     border-radius: 0.5rem;
+    max-width: 98vw;
+    overflow-x: scroll;
   }
 
   ol > * + * {
