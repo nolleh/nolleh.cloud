@@ -39,7 +39,7 @@
   }
 
   ol {
-    padding: 1.5rem 1.5rem 1.5rem 4em;
+    padding: 1.2rem 1.2rem 1.2rem 3.2em;
     border: 0.3rem solid turquoise;
     columns: 25rem;
     column-rule: 4px dotted turquoise;
