@@ -45,6 +45,7 @@
     border-radius: 0.5rem;
     max-width: 98vw;
     overflow-x: scroll;
+    word-break: break-all;
   }
 
   ol > * + * {
