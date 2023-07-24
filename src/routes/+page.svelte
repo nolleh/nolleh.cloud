@@ -9,7 +9,9 @@
 
   let content: string = 'scrollable-content';
   let playedProject: string = '';
+  let playedGif: string | null;
   let scproject: HTMLElement;
+  let projectIntersecting: boolean;
 
   const contribution: Repo[] = [
     { url: 'https://github.com/helm/charts', name: 'helm', lang: Lang.HELM, merged: true },
@@ -94,19 +96,32 @@
   ];
 
   function gifPlay(id: string) {
-    const project = projects.find((x) => x.id === id);
     if (!id || playedProject === id) {
       playedProject = '';
-      if (scproject) scproject.style.backgroundImage = '';
-      return;
+      playedGif = null;
+      return '';
     }
 
-    if (project && project.gif && scproject) {
-      scproject.style.backgroundImage = `url(${project.gif})`;
-    }
-
+    const project = projects.find((x) => x.id === id);
+    playedGif = project?.gif ?? null;
     playedProject = id;
+    return '';
   }
+
+  function determineGifPlay(intersecting: boolean): string {
+    if (!intersecting) {
+      playedProject = '';
+      playedGif = null;
+      return playedProject;
+    }
+
+    if (intersecting && playedProject && playedGif) {
+      return playedProject; 
+    }
+    return playedProject; 
+  }
+
+  $: playedProject = determineGifPlay(projectIntersecting);
 </script>
 
 <Nav {content} />
@@ -189,14 +204,19 @@
     </section>
   </Intersection>
 
-  <Intersection let:intersecting>
-    <section id="sc-projects" class={`snap ${playedProject ? 'play' : ''}`} bind:this={scproject}>
-      <div class={`wrap hidden ${intersecting ? 'show' : ''} ${playedProject ? 'play' : ''}`}>
+  <Intersection let:intersecting exintersecting={projectIntersecting}>
+    <section
+      id="sc-projects"
+      class={`snap ${intersecting && playedProject? 'play': ''}` }
+      bind:this={scproject}
+      style="background-image:url({playedGif})"
+    >
+      <div class={`wrap hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''}`}>
         <h1>Projects</h1>
         <div class="logos">
           {#each projects as project}
             <button
-              class={`logo hidden ${intersecting ? 'show' : ''} ${playedProject ? 'play' : ''} ${
+              class={`logo hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''} ${
                 playedProject === project.id ? 'selected-play' : ''
               }`}
               type="button"
@@ -207,9 +227,6 @@
           {/each}
         </div>
       </div>
-      {#if !intersecting}
-        {gifPlay('')}
-      {/if}
     </section>
   </Intersection>
 

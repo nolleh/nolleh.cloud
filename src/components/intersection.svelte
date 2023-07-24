@@ -5,6 +5,7 @@
   export let bottom = 0;
   export let left = 0;
   export let right = 0;
+  export let exintersecting: boolean = false;
   let container: any;
   export let id: string = '';
   let intersecting: boolean = false;
@@ -15,6 +16,7 @@
     threshold: 0.5
   };
 
+  $:exintersecting = intersecting;
   // bugs in svelte intersection observer when running SSR.
   onMount(() => {
     if (typeof IntersectionObserver !== 'undefined') {
