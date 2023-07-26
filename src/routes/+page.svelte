@@ -204,19 +204,19 @@
     </section>
   </Intersection>
 
-  <Intersection let:intersecting exintersecting={projectIntersecting}>
+  <Intersection let:intersecting={projectIntersecting}>
     <section
       id="sc-projects"
-      class={`snap ${intersecting && playedProject? 'play': ''}` }
+      class={`snap ${projectIntersecting && playedProject? 'play': ''}` }
       bind:this={scproject}
-      style="background-image:url({playedGif})"
+      style="background-image:{ projectIntersecting && playedGif ? `url(${playedGif})` : 'none'}"
     >
-      <div class={`wrap hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''}`}>
+      <div class={`wrap hidden ${projectIntersecting ? 'show' : ''} ${projectIntersecting && playedProject ? 'play' : ''}`}>
         <h1>Projects</h1>
         <div class="logos">
           {#each projects as project}
             <button
-              class={`logo hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''} ${
+              class={`logo hidden ${projectIntersecting ? 'show' : ''} ${projectIntersecting && playedProject ? 'play' : ''} ${
                 playedProject === project.id ? 'selected-play' : ''
               }`}
               type="button"
