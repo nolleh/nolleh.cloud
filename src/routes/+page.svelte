@@ -95,7 +95,7 @@
     }
   ];
 
-  function gifPlay(id: string) {
+  function gifPlay(id: string | null = null) {
     if (!id || playedProject === id) {
       playedProject = '';
       playedGif = null;
@@ -108,20 +108,6 @@
     return '';
   }
 
-  function determineGifPlay(intersecting: boolean): string {
-    if (!intersecting) {
-      playedProject = '';
-      playedGif = null;
-      return playedProject;
-    }
-
-    if (intersecting && playedProject && playedGif) {
-      return playedProject; 
-    }
-    return playedProject; 
-  }
-
-  $: playedProject = determineGifPlay(projectIntersecting);
 </script>
 
 <Nav {content} />
@@ -204,19 +190,19 @@
     </section>
   </Intersection>
 
-  <Intersection let:intersecting={projectIntersecting}>
+  <Intersection let:intersecting>
     <section
       id="sc-projects"
-      class={`snap ${projectIntersecting && playedProject? 'play': ''}` }
+      class={`snap ${intersecting && playedProject? 'play': gifPlay()}` }
       bind:this={scproject}
-      style="background-image:{ projectIntersecting && playedGif ? `url(${playedGif})` : 'none'}"
+      style="background-image:{ intersecting && playedGif ? `url(${playedGif})` : 'none'}"
     >
-      <div class={`wrap hidden ${projectIntersecting ? 'show' : ''} ${projectIntersecting && playedProject ? 'play' : ''}`}>
+      <div class={`wrap hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''}`}>
         <h1>Projects</h1>
         <div class="logos">
           {#each projects as project}
             <button
-              class={`logo hidden ${projectIntersecting ? 'show' : ''} ${projectIntersecting && playedProject ? 'play' : ''} ${
+              class={`logo hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''} ${
                 playedProject === project.id ? 'selected-play' : ''
               }`}
               type="button"
