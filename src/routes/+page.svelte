@@ -10,8 +10,6 @@
   let content: string = 'scrollable-content';
   let playedProject: string = '';
   let playedGif: string | null;
-  let scproject: HTMLElement;
-  let projectIntersecting: boolean;
 
   const contribution: Repo[] = [
     { url: 'https://github.com/helm/charts', name: 'helm', lang: Lang.HELM, merged: true },
@@ -107,7 +105,6 @@
     playedProject = id;
     return '';
   }
-
 </script>
 
 <Nav {content} />
@@ -193,23 +190,35 @@
   <Intersection let:intersecting>
     <section
       id="sc-projects"
-      class={`snap ${intersecting && playedProject? 'play': gifPlay()}` }
-      bind:this={scproject}
-      style="background-image:{ intersecting && playedGif ? `url(${playedGif})` : 'none'}"
+      class={`snap ${intersecting && playedProject ? 'play' : gifPlay()}`}
+      style="background-image:{intersecting && playedGif ? `url(${playedGif})` : 'none'}"
     >
-      <div class={`wrap hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''}`}>
+      <div
+        class={`wrap hidden ${intersecting ? 'show' : ''} ${
+          intersecting && playedProject ? 'play' : ''
+        }`}
+      >
         <h1>Projects</h1>
         <div class="logos">
           {#each projects as project}
-            <button
-              class={`logo hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''} ${
-                playedProject === project.id ? 'selected-play' : ''
-              }`}
-              type="button"
-              on:click={() => gifPlay(project.id)}
+            <div
+              class={`logo flip-card hidden ${intersecting ? 'show' : ''} ${
+                intersecting && playedProject ? 'play' : ''
+              } ${playedProject === project.id ? 'selected-play' : ''}`}
             >
-              <img class="logoimg" src={project.src} alt={project.desc} width="100px" />
-            </button>
+              <div class="flip-card-inner">
+                <button
+                  class="flip-card-front"
+                  type="button"
+                  on:click={() => gifPlay(project.id)}
+                >
+                  <img class="logoimg" src={project.src} alt={project.desc} width="100px" />
+                </button>
+                <button class="flip-card-back">
+                  <h2>{project.id}</h2>
+                </button>
+              </div>
+            </div>
           {/each}
         </div>
       </div>
@@ -275,16 +284,16 @@
     grid-template-rows: auto 1fr;
   }
 
-  button.selected-play {
-    animation: flip 1.5s infinite linear;
+  div.selected-play {
+    animation: flip 1.5s linear;
   }
 
   @keyframes flip {
     0% {
       transform: rotateY(0deg);
     }
-    50% {
-      transform: rotateY(65deg);
+    100% {
+      transform: rotateY(180deg);
     }
   }
 
@@ -348,11 +357,41 @@
     scroll-snap-align: center;
   }
 
-  .logo {
+  .logos {
+    display: inline-flex;
+  }
+
+  .logo,
+  .flip-card {
+    width: 100px;
+    height: 100px;
     margin: 10px;
     border-radius: 10px;
     background-color: #131316;
     padding: 0;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height:100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
   }
 
   .logoimg {
