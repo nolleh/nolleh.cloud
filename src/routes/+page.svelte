@@ -10,8 +10,6 @@
   let content: string = 'scrollable-content';
   let playedProject: string = '';
   let playedGif: string | null;
-  let scproject: HTMLElement;
-  let projectIntersecting: boolean;
 
   const contribution: Repo[] = [
     { url: 'https://github.com/helm/charts', name: 'helm', lang: Lang.HELM, merged: true },
@@ -194,7 +192,6 @@
     <section
       id="sc-projects"
       class={`snap ${intersecting && playedProject? 'play': gifPlay()}` }
-      bind:this={scproject}
       style="background-image:{ intersecting && playedGif ? `url(${playedGif})` : 'none'}"
     >
       <div class={`wrap hidden ${intersecting ? 'show' : ''} ${intersecting && playedProject ? 'play' : ''}`}>
