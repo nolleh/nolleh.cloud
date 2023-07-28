@@ -201,8 +201,7 @@
         <h1>Projects</h1>
         <div class="logos">
           {#each projects as project}
-            <div
-              class={`logo flip-card hidden ${intersecting ? 'show' : ''}`}>
+            <div class={`logo flip-card hidden ${intersecting ? 'show' : ''}`}>
               <div class={`flip-card-inner ${playedProject === project.id ? 'is-flipped' : ''}`}>
                 <button class="flip-card-front" type="button" on:click={() => gifPlay(project.id)}>
                   <img class="logoimg" src={project.src} alt={project.desc} />
@@ -363,13 +362,13 @@
   .flip-card-front,
   .flip-card-back {
     position: absolute;
-    background-color:  #4B4B4B;
+    background-color: #4b4b4b;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 10px;
-    padding:0;
+    padding: 0;
   }
 
   .flip-card-back {
@@ -379,8 +378,8 @@
   }
 
   .logoimg {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     /* display:inline-block; */
     border-radius: 10px;
   }
