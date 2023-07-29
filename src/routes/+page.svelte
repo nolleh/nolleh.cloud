@@ -337,7 +337,8 @@
   }
 
   .logos {
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .logo {
