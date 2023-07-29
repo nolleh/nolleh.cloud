@@ -202,17 +202,10 @@
         <div class="logos">
           {#each projects as project}
             <div
-              class={`logo flip-card hidden ${intersecting ? 'show' : ''} ${
-                intersecting && playedProject ? 'play' : ''
-              } ${playedProject === project.id ? 'selected-play' : ''}`}
-            >
-              <div class="flip-card-inner">
-                <button
-                  class="flip-card-front"
-                  type="button"
-                  on:click={() => gifPlay(project.id)}
-                >
-                  <img class="logoimg" src={project.src} alt={project.desc} width="100px" />
+              class={`flip-card hidden ${intersecting ? 'show' : ''}`}>
+              <div class={`flip-card-inner ${playedProject === project.id ? 'is-flipped' : ''}`}>
+                <button class="flip-card-front" type="button" on:click={() => gifPlay(project.id)}>
+                  <img class="" src={project.src} alt={project.desc} width="100px" />
                 </button>
                 <button class="flip-card-back">
                   <h2>{project.id}</h2>
@@ -282,10 +275,6 @@
     /* align-items: center; */
     /* justify-items: center; */
     grid-template-rows: auto 1fr;
-  }
-
-  div.selected-play {
-    animation: flip 1.5s linear;
   }
 
   @keyframes flip {
@@ -362,28 +351,34 @@
   }
 
   .logo,
-  .flip-card {
+  .flip-card /* scene */ {
     width: 100px;
     height: 100px;
     margin: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     background-color: #131316;
     padding: 0;
   }
 
+  /* card */
   .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
+    transition: transform 1s;
     transform-style: preserve-3d;
+  }
+
+  .flip-card-inner.is-flipped {
+    transform: rotateY(-180deg);
   }
 
   .flip-card-front,
   .flip-card-back {
     position: absolute;
     width: 100%;
-    height:100%;
+    height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
