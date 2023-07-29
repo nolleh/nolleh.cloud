@@ -205,7 +205,7 @@
               class={`logo flip-card hidden ${intersecting ? 'show' : ''}`}>
               <div class={`flip-card-inner ${playedProject === project.id ? 'is-flipped' : ''}`}>
                 <button class="flip-card-front" type="button" on:click={() => gifPlay(project.id)}>
-                  <img class="" src={project.src} alt={project.desc} width="100px" />
+                  <img class="logoimg" src={project.src} alt={project.desc} />
                 </button>
                 <button class="flip-card-back" on:click={() => gifPlay(project.id)}>
                   <h2>{project.id}</h2>
@@ -277,15 +277,6 @@
     grid-template-rows: auto 1fr;
   }
 
-  @keyframes flip {
-    0% {
-      transform: rotateY(0deg);
-    }
-    100% {
-      transform: rotateY(180deg);
-    }
-  }
-
   @media screen and (max-width: 768px) {
     section.play {
       background-size: 250% auto;
@@ -355,11 +346,9 @@
     height: 100px;
     margin: 10px;
     border-radius: 10px;
-    background-color: #131316;
     padding: 0;
   }
 
-  /* card */
   .flip-card-inner {
     width: 100%;
     height: 100%;
@@ -374,23 +363,25 @@
   .flip-card-front,
   .flip-card-back {
     position: absolute;
+    background-color:  #4B4B4B;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 10px;
+    padding:0;
   }
 
   .flip-card-back {
-    background-color: dodgerblue;
     color: white;
     transform: rotateY(180deg);
     font-size: 0.7rem;
   }
 
   .logoimg {
-    display: block;
-    overflow-x: scroll;
+    width:100%;
+    height:100%;
+    /* display:inline-block; */
     border-radius: 10px;
   }
 
