@@ -202,12 +202,12 @@
         <div class="logos">
           {#each projects as project}
             <div
-              class={`flip-card hidden ${intersecting ? 'show' : ''}`}>
+              class={`logo flip-card hidden ${intersecting ? 'show' : ''}`}>
               <div class={`flip-card-inner ${playedProject === project.id ? 'is-flipped' : ''}`}>
                 <button class="flip-card-front" type="button" on:click={() => gifPlay(project.id)}>
                   <img class="" src={project.src} alt={project.desc} width="100px" />
                 </button>
-                <button class="flip-card-back">
+                <button class="flip-card-back" on:click={() => gifPlay(project.id)}>
                   <h2>{project.id}</h2>
                 </button>
               </div>
