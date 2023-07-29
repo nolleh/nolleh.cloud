@@ -350,22 +350,19 @@
     display: inline-flex;
   }
 
-  .logo,
-  .flip-card /* scene */ {
+  .logo {
     width: 100px;
     height: 100px;
     margin: 10px;
-    /* border-radius: 10px; */
+    border-radius: 10px;
     background-color: #131316;
     padding: 0;
   }
 
   /* card */
   .flip-card-inner {
-    position: relative;
     width: 100%;
     height: 100%;
-    text-align: center;
     transition: transform 1s;
     transform-style: preserve-3d;
   }
@@ -381,12 +378,14 @@
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    border-radius: 10px;
   }
 
   .flip-card-back {
     background-color: dodgerblue;
     color: white;
     transform: rotateY(180deg);
+    font-size: 0.7rem;
   }
 
   .logoimg {
