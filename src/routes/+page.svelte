@@ -190,8 +190,8 @@
   <Intersection let:intersecting>
     <section
       id="sc-projects"
-      class={`snap ${intersecting && playedProject ? 'play' : gifPlay()}`}
-      style="background-image:{intersecting && playedGif ? `url(${playedGif})` : 'none'}"
+      class={`snap ${intersecting && playedProject? 'play': gifPlay()}` }
+      style="background-image:{ intersecting && playedGif ? `url(${playedGif})` : 'none'}"
     >
       <div
         class={`wrap hidden ${intersecting ? 'show' : ''} ${
