@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Repo } from '../libs/repo';
+  import type { Repo } from '$lib/repo';
 
   export let repos: Repo[];
   export type { Repo };

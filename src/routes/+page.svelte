@@ -1,11 +1,11 @@
 <script lang="ts">
-  import Nav from '../components/nav.svelte';
-  import Intersection from '../components/intersection.svelte';
-  import BoxListing from '../components/box-listing.svelte';
-  import Collapsible from '../components/collapsible.svelte';
+  import Nav from '$lib/components/nav.svelte';
+  import Intersection from '$lib/components/intersection.svelte';
+  import BoxListing from '$lib/components/box-listing.svelte';
+  import Collapsible from '$lib/components/collapsible.svelte';
 
-  import type { Repo } from '../libs/repo';
-  import { Lang } from '../libs/repo';
+  import type { Repo } from '$lib/repo';
+  import { Lang } from '$lib/repo';
 
   let content: string = 'scrollable-content';
   let playedProject: string = '';
