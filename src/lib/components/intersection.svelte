@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, createEventDispatcher } from 'svelte';
 
   export let top = 0;
   export let bottom = 0;
@@ -9,13 +9,16 @@
   export let id: string = '';
   let intersecting: boolean = false;
 
+  const dispatch = createEventDispatcher();
+
+  $: dispatch('onIntersectingChanged', { container, intersecting });
+
   const appearOptions = {
     // root: document.querySelector('.container'),
     rootMargin: '0px',
     threshold: 0.5
   };
 
-  // bugs in svelte intersection observer when running SSR.
   onMount(() => {
     if (typeof IntersectionObserver !== 'undefined') {
       const observer = new IntersectionObserver((entries) => {

@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Nav from '$lib/components/nav.svelte';
-  import Intersection from '$lib/components/intersection.svelte';
-  import BoxListing from '$lib/components/box-listing.svelte';
-  import Collapsible from '$lib/components/collapsible.svelte';
+  import Nav from '$lib/components/Nav.svelte';
+  import Intersection from '$lib/components/Intersection.svelte';
+  import BoxListing from '$lib/components/BoxListing.svelte';
+  import Collapsible from '$lib/components/Collapsible.svelte';
 
   import type { Repo } from '$lib/repo';
   import { Lang } from '$lib/repo';
@@ -105,13 +105,22 @@
     playedProject = id;
     return '';
   }
+
+  function onIntersectingChanged(event: any) {
+    const target = event.detail.container as Element;
+    const hiddens = target.querySelectorAll('.hidden');
+    for (const h of hiddens) {
+      event.detail.intersecting ? h.classList.add('show') : h.classList.remove('show');
+    }
+  }
 </script>
 
 <Nav {content} />
 <div id={content} class="container">
-  <Intersection let:intersecting>
+  <Intersection on:onIntersectingChanged={onIntersectingChanged}>
     <section id="sc-intro" class="snap">
-      <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
+      <div class="wrap hidden">
+        <!-- <div class={`wrap hidden ${intersecting ? 'show' : ''}`}> -->
         <h1>Nolleh (kyeong-mi Kim)</h1>
         <p>Realtime Game Server / Backend Programmer</p>
         <div class="tags">#MultiThread #Framework #WebSocket #devops #Android</div>
@@ -146,9 +155,9 @@
     </section>
   </Intersection>
 
-  <Intersection let:intersecting>
+  <Intersection on:onIntersectingChanged={onIntersectingChanged}>
     <section id="sc-skill" class="snap">
-      <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
+      <div class="wrap hidden">
         <h1>Skills</h1>
         <h2>Realtime Game Server</h2>
         <p>Senior Engineer for C++, C# based RPC Framework with Socket Programming</p>
@@ -156,18 +165,8 @@
         <div class="tags">#MultiThread #TCP/IP #WebSocket #Frameworks #boost.Asio #windows</div>
 
         <div class="logos">
-          <img
-            class={`logo hidden ${intersecting ? 'show' : ''}`}
-            src="skills/aws.webp"
-            alt="aws"
-            width="100px"
-          />
-          <img
-            class={`logo hidden ${intersecting ? 'show' : ''}`}
-            src="skills/k8s.png"
-            alt="k8s"
-            width="100px"
-          />
+          <img class="logo hidden" src="skills/aws.webp" alt="aws" width="100px" />
+          <img class="logo hidden" src="skills/k8s.png" alt="k8s" width="100px" />
         </div>
 
         <h2>Backend Server</h2>
@@ -187,21 +186,17 @@
     </section>
   </Intersection>
 
-  <Intersection let:intersecting>
+  <Intersection let:intersecting on:onIntersectingChanged={onIntersectingChanged}>
     <section
       id="sc-projects"
-      class={`snap ${intersecting && playedProject? 'play': gifPlay()}` }
-      style="background-image:{ intersecting && playedGif ? `url(${playedGif})` : 'none'}"
+      class={`snap ${intersecting && playedProject ? 'play' : gifPlay()}`}
+      style="background-image:{intersecting && playedGif ? `url(${playedGif})` : 'none'}"
     >
-      <div
-        class={`wrap hidden ${intersecting ? 'show' : ''} ${
-          intersecting && playedProject ? 'play' : ''
-        }`}
-      >
+      <div class={`wrap hidden ${intersecting && playedProject ? 'play' : ''}`}>
         <h1>Projects</h1>
         <div class="logos">
           {#each projects as project}
-            <div class={`logo flip-card hidden ${intersecting ? 'show' : ''}`}>
+            <div class="logo flip-card hidden">
               <div class={`flip-card-inner ${playedProject === project.id ? 'is-flipped' : ''}`}>
                 <button class="flip-card-front" type="button" on:click={() => gifPlay(project.id)}>
                   <img class="logoimg" src={project.src} alt={project.desc} />
@@ -217,9 +212,9 @@
     </section>
   </Intersection>
 
-  <Intersection let:intersecting>
+  <Intersection on:onIntersectingChanged={onIntersectingChanged}>
     <section id="sc-personal" class="snap">
-      <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
+      <div class="wrap hidden">
         <h1>Personal Activities #1</h1>
         <h3>OpenSource Contribution</h3>
         <BoxListing repos={contribution} />
