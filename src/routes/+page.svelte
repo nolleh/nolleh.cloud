@@ -4,94 +4,12 @@
   import BoxListing from '$lib/components/BoxListing.svelte';
   import Collapsible from '$lib/components/Collapsible.svelte';
 
-  import type { Repo } from '$lib/repo';
-  import { Lang } from '$lib/repo';
+  import { contribution, ownCode } from '$lib/stores/repo';
+  import { projects } from '$lib/stores/project';
 
   let content: string = 'scrollable-content';
   let playedProject: string = '';
   let playedGif: string | null;
-
-  const contribution: Repo[] = [
-    { url: 'https://github.com/helm/charts', name: 'helm', lang: Lang.HELM, merged: true },
-    { url: 'https://github.com/sirupsen/logrus', name: 'logrus', lang: Lang.GO, merged: true },
-    {
-      url: 'https://github.com/NLKNguyen/pipe-mysql.vim',
-      name: 'pipe-mysql.vim',
-      lang: Lang.VIM_SCRIPT,
-      merged: true
-    },
-    {
-      url: 'https://github.com/vimwiki/vimwiki',
-      name: 'vimwiki',
-      lang: Lang.VIM_SCRIPT,
-      merged: true
-    },
-    {
-      url: 'https://github.com/nekipelov/redisclient',
-      name: 'redisclient c++',
-      lang: Lang.CPP,
-      merged: false
-    }
-  ];
-
-  const ownCode: Repo[] = [
-    {
-      url: 'https://github.com/nolleh/caption_json_formatter',
-      name: 'caption-json-formatter',
-      lang: Lang.GO,
-      merged: false
-    },
-    { url: 'https://github.com/nolleh/ctxlog', name: 'ctxlog', lang: Lang.GO, merged: false },
-    {
-      url: 'https://github.com/nolleh/serialize-interceptor',
-      name: 'serialize-interceptor',
-      lang: Lang.VIM_SCRIPT,
-      merged: false
-    },
-    {
-      url: 'https://github.com/nolleh/jest-badge-deploy-action',
-      name: 'jest-badge-deploy-action',
-      lang: Lang.VIM_SCRIPT,
-      merged: false
-    }
-  ];
-
-  interface Project {
-    id: string;
-    src: string;
-    desc: string;
-    gif?: string;
-  }
-
-  const projects: Project[] = [
-    {
-      id: 'newmatgo',
-      src: 'projects/newmatgo.png',
-      desc: 'pmang newmatgo mobile',
-      gif: 'projects/newmatgo.gif'
-    },
-    {
-      id: 'poker',
-      src: 'projects/poker.png',
-      desc: 'pmang poker',
-      gif: 'projects/poker.gif'
-    },
-    {
-      id: 'heybit',
-      src: 'projects/heybit.webp',
-      desc: 'heybit'
-    },
-    {
-      id: 'bp',
-      src: 'projects/bp.jpeg',
-      desc: 'brown dust puzzle'
-    },
-    {
-      id: 'bugs',
-      src: 'projects/bugs.png',
-      desc: 'music player bugs'
-    }
-  ];
 
   function gifPlay(id: string | null = null) {
     if (!id || playedProject === id) {
@@ -100,7 +18,7 @@
       return '';
     }
 
-    const project = projects.find((x) => x.id === id);
+    const project = $projects.find((x) => x.id === id);
     playedGif = project?.gif ?? null;
     playedProject = id;
     return '';
@@ -192,12 +110,13 @@
       class={`snap ${intersecting && playedProject ? 'play' : gifPlay()}`}
       style="background-image:{intersecting && playedGif ? `url(${playedGif})` : 'none'}"
     >
-      <div class={`wrap hidden ${intersecting && playedProject ? 'play' : ''}`}>
+      <div class="wrap hidden" class:play={intersecting && playedProject}>
+        <!-- <div class={`wrap hidden ${intersecting && playedProject ? 'play' : ''}`}> -->
         <h1>Projects</h1>
         <div class="logos">
-          {#each projects as project}
+          {#each $projects as project}
             <div class="logo flip-card hidden">
-              <div class={`flip-card-inner ${playedProject === project.id ? 'is-flipped' : ''}`}>
+              <div class="flip-card-inner" class:is-flipped={playedProject === project.id}>
                 <button class="flip-card-front" type="button" on:click={() => gifPlay(project.id)}>
                   <img class="logoimg" src={project.src} alt={project.desc} />
                 </button>
@@ -217,7 +136,7 @@
       <div class="wrap hidden">
         <h1>Personal Activities #1</h1>
         <h3>OpenSource Contribution</h3>
-        <BoxListing repos={contribution} />
+        <BoxListing repos={$contribution} />
       </div>
     </section>
   </Intersection>
@@ -226,7 +145,7 @@
       <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
         <h1>Personal Activities #2</h1>
         <h3>Original Open Source</h3>
-        <BoxListing repos={ownCode} />
+        <BoxListing repos={$ownCode} />
       </div>
     </section>
   </Intersection>
