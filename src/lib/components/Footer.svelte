@@ -17,8 +17,7 @@
             <div class="w-col w-col-7 w-col-small-6 w-col-tiny-7">
               <h3 class="footer-titles">Learn</h3>
               <p class="footer-links">
-                <a href="" target="_blank"><span class="footer-link">Introduction<br /></span></a
-                >
+                <a href="" target="_blank"><span class="footer-link">Introduction<br /></span></a>
                 <a href="" target="_blank"><span class="footer-link">Working History<br /></span></a
                 >
                 <a href=""><span class="footer-link">Participated Projects<br /></span></a><a
