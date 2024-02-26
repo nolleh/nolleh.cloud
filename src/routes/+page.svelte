@@ -95,7 +95,7 @@
             Developed Game Contents (League, Campaign, Store, Mission, Battle Pass, Guild,
             Inventory, Chat..)
           </p>
-          <p>Developed Fintech Contents (140 million)</p>
+          <p>Developed Fintech Contents (22 billion)</p>
           <div class="tags">
             #Restful Api #Asp.Net #Node.js #Platform #Contents (Game/Fintech) #BlockChain #MSA
           </div>
