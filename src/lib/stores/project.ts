@@ -34,5 +34,10 @@ export const projects = readable([
     id: 'bugs',
     src: 'projects/bugs.png',
     desc: 'music player bugs'
+  },
+  {
+    id: 'bitbunny',
+    src:'projects/bb.jpeg',
+    desc: 'reward app, bit bunny'
   }
 ]);
