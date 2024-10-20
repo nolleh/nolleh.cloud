@@ -21,6 +21,11 @@ export const projects = readable([
     gif: 'projects/poker.gif'
   },
   {
+    id: 'dndn',
+    src: 'projects/dndn.jpeg',
+    desc: 'dndn'
+  },
+  {
     id: 'heybit',
     src: 'projects/heybit.webp',
     desc: 'heybit'

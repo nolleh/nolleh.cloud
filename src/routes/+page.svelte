@@ -319,4 +319,8 @@
   .logo.logoimg:nth-child(6) {
     transition-delay: 1000ms;
   }
+  .logo:nth-child(7),
+  .logo.logoimg:nth-child(7) {
+    transition-delay: 1200ms;
+  }
 </style>
