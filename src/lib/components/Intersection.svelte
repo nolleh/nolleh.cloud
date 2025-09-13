@@ -11,7 +11,11 @@
 
   const dispatch = createEventDispatcher();
 
-  $: dispatch('onIntersectingChanged', { container, intersecting });
+  $: {
+    if (container) {
+      dispatch('onIntersectingChanged', { container, intersecting });
+    }
+  }
 
   const appearOptions = {
     // root: document.querySelector('.container'),

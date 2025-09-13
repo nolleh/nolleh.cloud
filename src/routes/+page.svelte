@@ -26,6 +26,8 @@
 
   function onIntersectingChanged(event: any) {
     const target = event.detail.container as Element;
+    if (!target) return; 
+    
     const hiddens = target.querySelectorAll('.hidden');
     for (const h of hiddens) {
       event.detail.intersecting ? h.classList.add('show') : h.classList.remove('show');
