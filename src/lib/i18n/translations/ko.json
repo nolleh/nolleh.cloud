@@ -1,0 +1,49 @@
+{
+  "intro": {
+    "title": "Nolleh (Kyeong-mi Kim)",
+    "subtitle": "실시간 게임 서버 / 백엔드 프로그래머",
+    "tags": "#멀티스레드 #프레임워크 #웹소켓 #데브옵스 #안드로이드"
+  },
+  "skills": {
+    "title": "기술",
+    "realtimeGameServer": {
+      "title": "실시간 게임 서버",
+      "description": "C++, C# 기반 RPC 프레임워크 및 소켓 프로그래밍 시니어 엔지니어",
+      "tags": "#멀티스레드 #TCP/IP #웹소켓 #프레임워크 #boost.Asio #윈도우"
+    },
+    "backendServer": {
+      "title": "백엔드 서버",
+      "devops": "K8S/AWS/Terraform에서 DevOps 경험 보유",
+      "services": "멤버십/인증/플랫폼 서비스 개발",
+      "gameContents": "게임 콘텐츠 개발 (리그, 캠페인, 상점, 미션, 배틀패스, 길드, 인벤토리, 채팅 등)",
+      "fintechContents": "핀테크 콘텐츠 개발 (220억원)",
+      "tags": "#RESTful API #Asp.Net #Node.js #플랫폼 #콘텐츠 (게임/핀테크) #블록체인 #MSA"
+    }
+  },
+  "projects": {
+    "title": "프로젝트"
+  },
+  "personalActivities": {
+    "title1": "Personal Activities #1",
+    "title2": "Personal Activities #2",
+    "title3": "Personal Activities #3",
+    "opensourceContribution": "OpenSource Contribution",
+    "originalOpenSource": "Original Open Source",
+    "androidApp": "Android App"
+  },
+  "footer": {
+    "description": "소프트웨어 엔지니어, 프로그래머",
+    "learn": "알아보기",
+    "other": "기타",
+    "followMe": "팔로우하기!",
+    "introduction": "소개",
+    "workingHistory": "경력",
+    "participatedProjects": "참여 프로젝트",
+    "skills": "기술",
+    "personalActivities": "개인 활동",
+    "personalProducts": "개인 제품",
+    "scraps": "스크랩",
+    "emailMe": "이메일:"
+  }
+}
+

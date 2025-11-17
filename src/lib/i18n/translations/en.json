@@ -1,0 +1,49 @@
+{
+  "intro": {
+    "title": "Nolleh (kyeong-mi Kim)",
+    "subtitle": "Realtime Game Server / Backend Programmer",
+    "tags": "#MultiThread #Framework #WebSocket #devops #Android"
+  },
+  "skills": {
+    "title": "Skills",
+    "realtimeGameServer": {
+      "title": "Realtime Game Server",
+      "description": "Senior Engineer for C++, C# based RPC Framework with Socket Programming",
+      "tags": "#MultiThread #TCP/IP #WebSocket #Frameworks #boost.Asio #windows"
+    },
+    "backendServer": {
+      "title": "Backend Server",
+      "devops": "have experience DevOps in K8S/AWS/Terraform",
+      "services": "Developed Membership/Auth/Platform Service",
+      "gameContents": "Developed Game Contents (League, Campaign, Store, Mission, Battle Pass, Guild, Inventory, Chat..)",
+      "fintechContents": "Developed Fintech Contents (22 billion)",
+      "tags": "#Restful Api #Asp.Net #Node.js #Platform #Contents (Game/Fintech) #BlockChain #MSA"
+    }
+  },
+  "projects": {
+    "title": "Projects"
+  },
+  "personalActivities": {
+    "title1": "Personal Activities #1",
+    "title2": "Personal Activities #2",
+    "title3": "Personal Activities #3",
+    "opensourceContribution": "OpenSource Contribution",
+    "originalOpenSource": "Original Open Source",
+    "androidApp": "Android App"
+  },
+  "footer": {
+    "description": "Software Engineer, Programmer",
+    "learn": "Learn",
+    "other": "Other",
+    "followMe": "Follow Me!",
+    "introduction": "Introduction",
+    "workingHistory": "Working History",
+    "participatedProjects": "Participated Projects",
+    "skills": "Skills",
+    "personalActivities": "Personal Activities",
+    "personalProducts": "Personal Products",
+    "scraps": "Scraps",
+    "emailMe": "Email me at:"
+  }
+}
+
