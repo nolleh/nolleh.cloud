@@ -6,6 +6,11 @@
 
   import { contribution, ownCode } from '$lib/stores/repo';
   import { projects } from '$lib/stores/project';
+  import { locale } from '$lib/stores/locale';
+  import { t } from '$lib/i18n';
+  
+  // Reactive translation helper
+  $: translate = (key: string) => t(key, $locale);
 
   let content: string = 'scrollable-content';
   let playedProject: string = '';
@@ -41,9 +46,9 @@
     <section id="sc-intro" class="snap">
       <div class="wrap hidden">
         <!-- <div class={`wrap hidden ${intersecting ? 'show' : ''}`}> -->
-        <h1>Nolleh (kyeong-mi Kim)</h1>
-        <p>Realtime Game Server / Backend Programmer</p>
-        <div class="tags">#MultiThread #Framework #WebSocket #devops #Android</div>
+        <h1>{translate('intro.title')}</h1>
+        <p>{translate('intro.subtitle')}</p>
+        <div class="tags">{translate('intro.tags')}</div>
 
         <div class="badges">
           <a href="https://leetcode.com/nolleh7707" target="_blank">
@@ -78,28 +83,25 @@
   <Intersection on:onIntersectingChanged={onIntersectingChanged}>
     <section id="sc-skill" class="snap">
       <div class="wrap hidden">
-        <h1>Skills</h1>
-        <h2>Realtime Game Server</h2>
-        <p>Senior Engineer for C++, C# based RPC Framework with Socket Programming</p>
+        <h1>{translate('skills.title')}</h1>
+        <h2>{translate('skills.realtimeGameServer.title')}</h2>
+        <p>{translate('skills.realtimeGameServer.description')}</p>
 
-        <div class="tags">#MultiThread #TCP/IP #WebSocket #Frameworks #boost.Asio #windows</div>
+        <div class="tags">{translate('skills.realtimeGameServer.tags')}</div>
 
         <div class="logos">
           <img class="logo hidden" src="skills/aws.webp" alt="aws" width="100px" />
           <img class="logo hidden" src="skills/k8s.png" alt="k8s" width="100px" />
         </div>
 
-        <h2>Backend Server</h2>
+        <h2>{translate('skills.backendServer.title')}</h2>
         <Collapsible>
-          <p>have experience DevOps in K8S/AWS/Terraform</p>
-          <p>Developed Membership/Auth/Platform Service</p>
-          <p>
-            Developed Game Contents (League, Campaign, Store, Mission, Battle Pass, Guild,
-            Inventory, Chat..)
-          </p>
-          <p>Developed Fintech Contents (22 billion)</p>
+          <p>{translate('skills.backendServer.devops')}</p>
+          <p>{translate('skills.backendServer.services')}</p>
+          <p>{translate('skills.backendServer.gameContents')}</p>
+          <p>{translate('skills.backendServer.fintechContents')}</p>
           <div class="tags">
-            #Restful Api #Asp.Net #Node.js #Platform #Contents (Game/Fintech) #BlockChain #MSA
+            {translate('skills.backendServer.tags')}
           </div>
         </Collapsible>
       </div>
@@ -114,7 +116,7 @@
     >
       <div class="wrap hidden" class:play={intersecting && playedProject}>
         <!-- <div class={`wrap hidden ${intersecting && playedProject ? 'play' : ''}`}> -->
-        <h1>Projects</h1>
+        <h1>{translate('projects.title')}</h1>
         <div class="logos">
           {#each $projects as project}
             <div class="logo flip-card hidden">
@@ -136,8 +138,8 @@
   <Intersection on:onIntersectingChanged={onIntersectingChanged}>
     <section id="sc-personal" class="snap">
       <div class="wrap hidden">
-        <h1>Personal Activities #1</h1>
-        <h3>OpenSource Contribution</h3>
+        <h1>{translate('personalActivities.title1')}</h1>
+        <h3>{translate('personalActivities.opensourceContribution')}</h3>
         <BoxListing repos={$contribution} />
       </div>
     </section>
@@ -145,8 +147,8 @@
   <Intersection let:intersecting>
     <section id="sc-personal2" class="snap">
       <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
-        <h1>Personal Activities #2</h1>
-        <h3>Original Open Source</h3>
+        <h1>{translate('personalActivities.title2')}</h1>
+        <h3>{translate('personalActivities.originalOpenSource')}</h3>
         <BoxListing repos={$ownCode} />
       </div>
     </section>
@@ -154,8 +156,8 @@
   <Intersection let:intersecting>
     <section id="sc-personal3" class="snap">
       <div class={`wrap hidden ${intersecting ? 'show' : ''}`}>
-        <h1>Personal Activities #3</h1>
-        <h3>Android App</h3>
+        <h1>{translate('personalActivities.title3')}</h1>
+        <h3>{translate('personalActivities.androidApp')}</h3>
       </div>
     </section>
   </Intersection>

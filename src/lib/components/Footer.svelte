@@ -1,3 +1,12 @@
+<script lang="ts">
+  import { locale } from '$lib/stores/locale';
+  import { t } from '$lib/i18n';
+  import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
+  
+  // Reactive translation helper
+  $: translate = (key: string) => t(key, $locale);
+</script>
+
 <div class="container-footer w-container">
   <div class="w-row">
     <div class="footer-column w-clearfix w-col w-col-4">
@@ -8,37 +17,37 @@
         class="failory-logo-image"
       />
       <h3 class="footer-failory-name">Nolleh</h3>
-      <p class="footer-description-failory">Software Engineer, Programmer<br /></p>
+      <p class="footer-description-failory">{translate('footer.description')}<br /></p>
     </div>
     <div class="footer-column w-col w-col-8">
       <div class="w-row">
         <div class="w-col w-col-8">
           <div class="w-row">
             <div class="w-col w-col-7 w-col-small-6 w-col-tiny-7">
-              <h3 class="footer-titles">Learn</h3>
+              <h3 class="footer-titles">{translate('footer.learn')}</h3>
               <p class="footer-links">
-                <a href="" target="_blank"><span class="footer-link">Introduction<br /></span></a>
-                <a href="" target="_blank"><span class="footer-link">Working History<br /></span></a
+                <a href="" target="_blank"><span class="footer-link">{translate('footer.introduction')}<br /></span></a>
+                <a href="" target="_blank"><span class="footer-link">{translate('footer.workingHistory')}<br /></span></a
                 >
-                <a href=""><span class="footer-link">Participated Projects<br /></span></a><a
-                  href=""><span class="footer-link">Skills</span></a
+                <a href=""><span class="footer-link">{translate('footer.participatedProjects')}<br /></span></a><a
+                  href=""><span class="footer-link">{translate('footer.skills')}</span></a
                 ><span><br /></span>
                 <strong><br /></strong>
               </p>
             </div>
             <div class="w-col w-col-5 w-col-small-6 w-col-tiny-5">
-              <h3 class="footer-titles">Other</h3>
+              <h3 class="footer-titles">{translate('footer.other')}</h3>
               <p class="footer-links">
-                <a href=""><span class="footer-link">Personal Activities<br /></span></a>
-                <a href=""><span class="footer-link">Personal Products<br /></span></a>
-                <a href=""><span class="footer-link">Scraps<br /></span></a>
+                <a href=""><span class="footer-link">{translate('footer.personalActivities')}<br /></span></a>
+                <a href=""><span class="footer-link">{translate('footer.personalProducts')}<br /></span></a>
+                <a href=""><span class="footer-link">{translate('footer.scraps')}<br /></span></a>
                 <strong><br /></strong>
               </p>
             </div>
           </div>
         </div>
         <div class="column-center-mobile w-col w-col-4">
-          <h3 class="footer-titles">Follow Me!</h3>
+          <h3 class="footer-titles">{translate('footer.followMe')}</h3>
           <a
             href="https://www.linkedin.com/in/%EA%B2%BD%EB%AF%B8-%EA%B9%80-a9805a82"
             target="_blank"
@@ -66,10 +75,13 @@
             /></a
           >
           <p class="footer-description">
-            Email me at: <a href="mailto: nolleh7707@gmail.com"
+            {translate('footer.emailMe')} <a href="mailto: nolleh7707@gmail.com"
               ><strong class="link-email-footer">Gmail</strong></a
             ><br />
           </p>
+          <div class="footer-language-switcher">
+            <LanguageSwitcher />
+          </div>
         </div>
       </div>
     </div>
@@ -366,5 +378,9 @@
   strong.link-email-footer {
     box-sizing: border-box;
     font-weight: 700;
+  }
+
+  .footer-language-switcher {
+    margin-top: 15px;
   }
 </style>
