@@ -1,5 +1,6 @@
 <script lang="ts">
   import { locale } from '$lib/stores/locale';
+  import { goto } from '$app/navigation';
   import { t } from '$lib/i18n';
   import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
   
@@ -10,14 +11,21 @@
 <div class="container-footer w-container">
   <div class="w-row">
     <div class="footer-column w-clearfix w-col w-col-4">
-      <img
-        src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/596d33f36607b12cfdaf8ad2_LogoWhite.png"
-        alt=""
-        width="40"
-        class="failory-logo-image"
-      />
-      <h3 class="footer-failory-name">Nolleh</h3>
-      <p class="footer-description-failory">{translate('footer.description')}<br /></p>
+      <button 
+        class="footer-brand-button"
+        on:click={() => goto("/")}
+        type="button"
+        aria-label="Go to homepage"
+      >
+        <img
+          src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/596d33f36607b12cfdaf8ad2_LogoWhite.png"
+          alt="Nolleh Logo"
+          width="40"
+          class="failory-logo-image"
+        />
+        <h3 class="footer-failory-name">Nolleh</h3>
+        <p class="footer-description-failory">{translate('footer.description')}<br /></p>
+      </button>
     </div>
     <div class="footer-column w-col w-col-8">
       <div class="w-row">
@@ -29,7 +37,7 @@
                 <a href="" target="_blank"><span class="footer-link">{translate('footer.introduction')}<br /></span></a>
                 <a href="" target="_blank"><span class="footer-link">{translate('footer.workingHistory')}<br /></span></a
                 >
-                <a href=""><span class="footer-link">{translate('footer.participatedProjects')}<br /></span></a><a
+                <a href="projects"><span class="footer-link">{translate('footer.participatedProjects')}<br /></span></a><a
                   href=""><span class="footer-link">{translate('footer.skills')}</span></a
                 ><span><br /></span>
                 <strong><br /></strong>
@@ -173,6 +181,31 @@
     grid-column-start: 1;
     grid-row-end: 2;
     grid-row-start: 1;
+  }
+
+  button.footer-brand-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: opacity 0.2s ease;
+  }
+
+  button.footer-brand-button:hover {
+    opacity: 0.9;
+  }
+
+  button.footer-brand-button:active {
+    opacity: 0.8;
+  }
+
+  button.footer-brand-button:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 4px;
+    border-radius: 4px;
   }
 
   img.failory-logo-image {

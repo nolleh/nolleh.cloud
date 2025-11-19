@@ -5,6 +5,16 @@ export interface Project {
   src: string;
   desc: string;
   gif?: string;
+  details?: ProjectDetails;
+}
+
+export interface ProjectDetails {
+  title: string;
+  period?: string;
+  role?: string;
+  description: string;
+  technologies: string[];
+  achievements?: string[];
 }
 
 export const projects = readable([

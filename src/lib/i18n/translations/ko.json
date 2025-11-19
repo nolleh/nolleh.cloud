@@ -21,7 +21,56 @@
     }
   },
   "projects": {
-    "title": "프로젝트"
+    "title": "프로젝트",
+    "details": {
+      "period": "기간",
+      "role": "역할",
+      "description": "설명",
+      "overview": "프로젝트 개요",
+      "contribution": "기여도",
+      "technologies": "기술 스택",
+      "achievements": "주요 성과",
+      "ai": {
+        "title": "AI 프로젝트",
+        "period": "2025.04~",
+        "role": "개발/LD",
+        "description": "지식 기반 서비스의 개발",
+        "technologies": "",
+        "achievements": ""
+      },
+      "dndn": {
+        "title": "든든",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      },
+      "heybit": {
+        "title": "헤이비트",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      },
+      "bp": {
+        "title": "브라운 더스트 퍼즐",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      },
+      "newmatgo": {
+        "title": "게임서버 (피망 뉴맞고)",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      }
+    }
   },
   "personalActivities": {
     "title1": "Personal Activities #1",

@@ -21,7 +21,56 @@
     }
   },
   "projects": {
-    "title": "Projects"
+    "title": "Projects",
+    "details": {
+      "period": "Period",
+      "role": "Role",
+      "description": "Description",
+      "overview": "Project Overview",
+      "contribution": "Contribution",
+      "technologies": "Technologies",
+      "achievements": "Achievements",
+      "ai": {
+        "title": "AI Project",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      },
+      "dndn": {
+        "title": "Dndn",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      },
+      "heybit": {
+        "title": "Heybit",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      },
+      "bp": {
+        "title": "Brown Dust Puzzle",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      },
+      "newmatgo": {
+        "title": "Game Server (Pmang Newmatgo)",
+        "period": "",
+        "role": "",
+        "description": "",
+        "technologies": "",
+        "achievements": ""
+      }
+    }
   },
   "personalActivities": {
     "title1": "Personal Activities #1",
