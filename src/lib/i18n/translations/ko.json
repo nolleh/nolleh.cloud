@@ -20,6 +20,14 @@
       "tags": "#RESTful API #Asp.Net #Node.js #플랫폼 #콘텐츠 (게임/핀테크) #블록체인 #MSA"
     }
   },
+  "history": {
+    "title": "업력",
+    "subtitle": "PL/IC로 빠르게 전달한 커리어 하이라이트",
+    "highlights": "주요 성과",
+    "techStack": "기술 스택",
+    "emptyState": "왼쪽에서 회사를 선택해주세요.",
+    "emptyStateEn": "Select a company on the left to view the timeline."
+  },
   "projects": {
     "title": "프로젝트",
     "details": {

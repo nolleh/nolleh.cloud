@@ -34,21 +34,20 @@
             <div class="w-col w-col-7 w-col-small-6 w-col-tiny-7">
               <h3 class="footer-titles">{translate('footer.learn')}</h3>
               <p class="footer-links">
-                <a href="" target="_blank"><span class="footer-link">{translate('footer.introduction')}<br /></span></a>
-                <a href="" target="_blank"><span class="footer-link">{translate('footer.workingHistory')}<br /></span></a
-                >
-                <a href="projects"><span class="footer-link">{translate('footer.participatedProjects')}<br /></span></a><a
-                  href=""><span class="footer-link">{translate('footer.skills')}</span></a
-                ><span><br /></span>
+                <a href="/"><span class="footer-link">{translate('footer.introduction')}<br /></span></a>
+                <a href="/history"><span class="footer-link">{translate('footer.workingHistory')}<br /></span></a>
+                <a href="/projects"><span class="footer-link">{translate('footer.participatedProjects')}<br /></span></a>
+                <a href="/#sc-skill"><span class="footer-link">{translate('footer.skills')}</span></a>
+                <span><br /></span>
                 <strong><br /></strong>
               </p>
             </div>
             <div class="w-col w-col-5 w-col-small-6 w-col-tiny-5">
               <h3 class="footer-titles">{translate('footer.other')}</h3>
               <p class="footer-links">
-                <a href=""><span class="footer-link">{translate('footer.personalActivities')}<br /></span></a>
-                <a href=""><span class="footer-link">{translate('footer.personalProducts')}<br /></span></a>
-                <a href=""><span class="footer-link">{translate('footer.scraps')}<br /></span></a>
+                <a href="/#sc-personal"><span class="footer-link">{translate('footer.personalActivities')}<br /></span></a>
+                <a href="/#sc-personal2"><span class="footer-link">{translate('footer.personalProducts')}<br /></span></a>
+                <a href="/#sc-personal3"><span class="footer-link">{translate('footer.scraps')}<br /></span></a>
                 <strong><br /></strong>
               </p>
             </div>

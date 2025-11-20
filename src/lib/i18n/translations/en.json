@@ -20,6 +20,14 @@
       "tags": "#Restful Api #Asp.Net #Node.js #Platform #Contents (Game/Fintech) #BlockChain #MSA"
     }
   },
+  "history": {
+    "title": "Working History",
+    "subtitle": "Highlights delivered as PL/IC",
+    "highlights": "Highlights",
+    "techStack": "Tech Stack",
+    "emptyState": "Pick a company on the left.",
+    "emptyStateEn": "Select a card to see the detailed timeline."
+  },
   "projects": {
     "title": "Projects",
     "details": {

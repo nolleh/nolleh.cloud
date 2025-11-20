@@ -20,7 +20,9 @@
     }
   });
   
-  $: isProjectPage = browser && ( $page.url.pathname.startsWith('/projects'));
+  $: isProjectPage = browser && (
+    $page.url.pathname.startsWith('/projects') || $page.url.pathname.startsWith('/history')
+  );
   $: if (browser) {
     if ($page.url.pathname.startsWith('/projects/')) {
       showFooter = true;
