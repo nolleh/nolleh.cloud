@@ -77,7 +77,6 @@
       </div>
     </div>
     
-    <!-- 오른쪽 상세 정보 영역 -->
     <div class="detail-panel" class:active={hoveredProject !== null}>
       {#if hoveredProject}
         <div class="detail-content">
@@ -132,7 +131,7 @@
     position: relative;
   }
   
-  /* 왼쪽 프로젝트 선택 영역 */
+  /* left side selection area */
   .project-selector {
     width: 400px;
     min-width: 400px;

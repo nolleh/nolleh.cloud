@@ -3,21 +3,81 @@
   import { t } from '$lib/i18n';
   import { locale } from '$lib/stores/locale';
   import { projects } from '$lib/stores/project';
+  import { getProjectMarkdown } from '$lib/projects/descriptions';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
   import { marked } from 'marked';
-  import { onMount } from 'svelte';
+  import { afterUpdate, onDestroy, onMount } from 'svelte';
   
   // Reactive translation helper
   $: translate = (key: string) => t(key, $locale);
   
-  // Markdown 설정
-  onMount(() => {
-    marked.setOptions({
-      breaks: true,
-      gfm: true
-    });
+  const renderer = new marked.Renderer();
+  const defaultCodeRenderer = renderer.code.bind(renderer);
+  type RendererCodeToken = Parameters<typeof defaultCodeRenderer>[0];
+  renderer.code = (token: RendererCodeToken) => {
+    const language = (token.lang || '').trim();
+    if (language === 'mermaid') {
+      return `<pre class="mermaid">${token.text}</pre>`;
+    }
+    return defaultCodeRenderer(token);
+  };
+  
+  marked.setOptions({
+    breaks: true,
+    gfm: true,
+    renderer
   });
+  
+  let mermaidInitialized = false;
+  let mermaidCheckHandle: ReturnType<typeof setTimeout> | null = null;
+  
+  function initializeMermaid() {
+    if (mermaidInitialized || typeof window === 'undefined' || !window.mermaid) return;
+    window.mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      securityLevel: 'loose'
+    });
+    mermaidInitialized = true;
+  }
+  
+  function renderMermaidDiagrams() {
+    if (typeof window === 'undefined' || !window.mermaid) return;
+    initializeMermaid();
+    if (!mermaidInitialized) return;
+    const nodes = document.querySelectorAll('.markdown-body .mermaid:not([data-processed])');
+    if (!nodes.length) return;
+    try {
+      window.mermaid.run({ nodes });
+    } catch (error) {
+      console.error('Failed to render mermaid diagram', error);
+    }
+  }
+  
+  onMount(() => {
+    const ensureMermaid = () => {
+      if (typeof window !== 'undefined' && window.mermaid) {
+        initializeMermaid();
+        renderMermaidDiagrams();
+        return;
+      }
+      mermaidCheckHandle = window.setTimeout(ensureMermaid, 200);
+    };
+    
+    ensureMermaid();
+  });
+  
+  onDestroy(() => {
+    if (mermaidCheckHandle) {
+      clearTimeout(mermaidCheckHandle);
+    }
+  });
+  
+  afterUpdate(() => {
+    renderMermaidDiagrams();
+  });
+  
   
   function renderMarkdown(markdown: string): string {
     if (!markdown) return '';
@@ -55,13 +115,17 @@
   }
   
   function getProjectDetail(id: string, field: string): string {
-    return translate(`projects.details.${id}.${field}`);
+    const key = `projects.details.${id}.${field}`;
+    const value = translate(key);
+    return value === key ? '' : value;
   }
   
   function hasProjectDetail(id: string, field: string): boolean {
-    const value = translate(`projects.details.${id}.${field}`);
-    return value !== `projects.details.${id}.${field}` && value !== '';
+    return getProjectDetail(id, field) !== '';
   }
+  
+  $: descriptionMarkdown = (getProjectMarkdown($locale, projectId) || getProjectDetail(projectId, 'description')).trim();
+  $: hasDescription = descriptionMarkdown.length > 0;
 </script>
 
 <Nav content="project-detail-content" />
@@ -131,11 +195,11 @@
             </div>
           {/if}
           
-          {#if hasProjectDetail(projectId, 'description')}
+          {#if hasDescription}
             <div class="detail-section full-width markdown-content">
               <h3 class="section-title">{translate('projects.details.description')}</h3>
               <div class="markdown-body">
-                {@html renderMarkdown(getProjectDetail(projectId, 'description'))}
+                {@html renderMarkdown(descriptionMarkdown)}
               </div>
             </div>
           {/if}
@@ -388,6 +452,24 @@
     font-size: 1.125rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .markdown-body :global(.mermaid) {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .markdown-body :global(pre.mermaid) {
+    margin: 1.5rem 0;
+  }
+  
+  .markdown-body :global(.mermaid svg) {
+    width: 100%;
+    height: auto;
   }
   
   .markdown-body :global(p) {

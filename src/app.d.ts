@@ -7,6 +7,13 @@ declare global {
     // interface PageData {}
     // interface Platform {}
   }
+  
+  interface Window {
+    mermaid?: {
+      initialize: (config: Record<string, unknown>) => void;
+      run: (config?: { nodes?: NodeListOf<Element> }) => Promise<void> | void;
+    };
+  }
 }
 
 export {};
