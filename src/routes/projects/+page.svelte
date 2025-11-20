@@ -43,9 +43,8 @@
 </script>
 
 <Nav content="projects-content" />
-<div id="projects-content" class="container">
+<div id="projects-content" class="container" data-project-page>
   <div class="projects-wrapper">
-    <!-- 왼쪽 프로젝트 선택 영역 -->
     <div class="project-selector">
       <h1 class="main-title">{translate('projects.title')}</h1>
       <div class="project-list">
@@ -124,13 +123,12 @@
     width: 100%;
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2a2f4a 100%);
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
     position: relative;
   }
   
   .projects-wrapper {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
   }
   
@@ -138,7 +136,7 @@
   .project-selector {
     width: 400px;
     min-width: 400px;
-    height: 100vh;
+    min-height: 100vh;
     padding: 3rem 2rem;
     background: rgba(15, 20, 35, 0.8);
     backdrop-filter: blur(10px);
@@ -319,7 +317,6 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
   }
   
-  /* 오른쪽 상세 정보 영역 */
   .detail-panel {
     flex: 1;
     height: 100vh;

@@ -15,8 +15,21 @@
 
     if (browser && $page.url.pathname === '/') {
       setupFooterObserver();
+    } else {
+      showFooter = true;
     }
   });
+  
+  $: isProjectPage = browser && ( $page.url.pathname.startsWith('/projects'));
+  $: if (browser) {
+    if ($page.url.pathname.startsWith('/projects/')) {
+      showFooter = true;
+    } else if ($page.url.pathname === '/') {
+      // main page are handled with observer
+    } else {
+      showFooter = true;
+    }
+  }
 
   function setupFooterObserver() {
     if (!browser) return;
@@ -77,7 +90,7 @@
 </script>
 
 <slot />
-<div class="footer-wrapper" bind:this={footerWrapper} class:visible={showFooter}>
+<div class="footer-wrapper" bind:this={footerWrapper} class:visible={showFooter} class:project-page={isProjectPage}>
   <Footer />
 </div>
 
@@ -93,6 +106,16 @@
   .footer-wrapper.visible {
     opacity: 1;
     transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .footer-wrapper.project-page {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2a2f4a 100%);
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+    opacity: 1;
+    transform: none;
     pointer-events: auto;
   }
 

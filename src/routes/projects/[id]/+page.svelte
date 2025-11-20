@@ -5,18 +5,31 @@
   import { projects } from '$lib/stores/project';
   import { page } from '$app/stores';
   import { goto } from '$app/navigation';
+  import { marked } from 'marked';
+  import { onMount } from 'svelte';
   
   // Reactive translation helper
   $: translate = (key: string) => t(key, $locale);
   
-  // 프로젝트 목록
+  // Markdown 설정
+  onMount(() => {
+    marked.setOptions({
+      breaks: true,
+      gfm: true
+    });
+  });
+  
+  function renderMarkdown(markdown: string): string {
+    if (!markdown) return '';
+    const result = marked.parse(markdown);
+    return typeof result === 'string' ? result : '';
+  }
+  
   const projectIds = ['ai', 'dndn', 'heybit', 'bp', 'newmatgo'];
   
-  // 현재 프로젝트 ID
   $: projectId = $page.params.id || '';
   $: currentIndex = projectIds.indexOf(projectId);
   
-  // 프로젝트 아이콘 매핑
   const projectIconMap: Record<string, string> = {
     'ai': 'querypie',
     'dndn': 'dndn',
@@ -52,7 +65,7 @@
 </script>
 
 <Nav content="project-detail-content" />
-<div id="project-detail-content" class="container">
+<div id="project-detail-content" class="container" data-project-page>
   <div class="projects-wrapper">
     <div class="project-selector collapsed">
       <button class="back-button" on:click={goBack} aria-label="Back">
@@ -119,9 +132,11 @@
           {/if}
           
           {#if hasProjectDetail(projectId, 'description')}
-            <div class="detail-section full-width">
+            <div class="detail-section full-width markdown-content">
               <h3 class="section-title">{translate('projects.details.description')}</h3>
-              <p class="section-text">{getProjectDetail(projectId, 'description')}</p>
+              <div class="markdown-body">
+                {@html renderMarkdown(getProjectDetail(projectId, 'description'))}
+              </div>
             </div>
           {/if}
           
@@ -167,21 +182,20 @@
     width: 100%;
     background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2a2f4a 100%);
     font-family: 'Inter', sans-serif;
-    overflow: hidden;
     position: relative;
   }
   
   .projects-wrapper {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
   }
   
-  /* 왼쪽 프로젝트 선택 영역 (축소됨) */
+  /* left side selectoable area (smallized) */
   .project-selector.collapsed {
     width: 280px;
     min-width: 280px;
-    height: 100vh;
+    min-height: 100vh;
     padding: 2rem 1.5rem;
     background: rgba(15, 20, 35, 0.9);
     backdrop-filter: blur(10px);
@@ -252,14 +266,13 @@
   /* 오른쪽 상세 정보 영역 */
   .detail-panel {
     flex: 1;
-    height: 100vh;
     padding: 4rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
-    overflow-y: auto;
+    min-height: 100vh;
   }
   
   .detail-panel.active {
@@ -270,6 +283,7 @@
     max-width: 900px;
     width: 100%;
     animation: fadeInUp 0.5s ease;
+    padding-bottom: 0;
   }
   
   @keyframes fadeInUp {
@@ -364,6 +378,134 @@
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
+  }
+  
+  .markdown-content {
+    padding: 2rem;
+  }
+  
+  .markdown-body {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .markdown-body :global(p) {
+    margin: 0 0 1.5rem 0;
+  }
+  
+  .markdown-body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  
+  .markdown-body :global(h1),
+  .markdown-body :global(h2),
+  .markdown-body :global(h3),
+  .markdown-body :global(h4),
+  .markdown-body :global(h5),
+  .markdown-body :global(h6) {
+    color: #fff;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .markdown-body :global(h1) {
+    font-size: 2rem;
+  }
+  
+  .markdown-body :global(h2) {
+    font-size: 1.75rem;
+  }
+  
+  .markdown-body :global(h3) {
+    font-size: 1.5rem;
+  }
+  
+  .markdown-body :global(ul),
+  .markdown-body :global(ol) {
+    margin: 1rem 0;
+    padding-left: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .markdown-body :global(li) {
+    margin: 0.5rem 0;
+  }
+  
+  .markdown-body :global(code) {
+    background: rgba(102, 126, 234, 0.2);
+    color: #fff;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .markdown-body :global(pre) {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .markdown-body :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+  
+  .markdown-body :global(blockquote) {
+    border-left: 4px solid rgba(102, 126, 234, 0.5);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+  }
+  
+  .markdown-body :global(a) {
+    color: #667eea;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.5);
+  }
+  
+  .markdown-body :global(a:hover) {
+    color: #764ba2;
+    border-bottom-color: rgba(118, 75, 162, 0.5);
+  }
+  
+  .markdown-body :global(strong) {
+    color: #fff;
+    font-weight: 700;
+  }
+  
+  .markdown-body :global(em) {
+    font-style: italic;
+  }
+  
+  .markdown-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+  }
+  
+  .markdown-body :global(th),
+  .markdown-body :global(td) {
+    padding: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left;
+  }
+  
+  .markdown-body :global(th) {
+    background: rgba(102, 126, 234, 0.2);
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .markdown-body :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
   }
   
   .tech-list {
@@ -468,7 +610,7 @@
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
   }
   
-  /* 반응형 디자인 */
+  /* responsive design */
   @media screen and (max-width: 1024px) {
     .project-selector.collapsed {
       width: 240px;

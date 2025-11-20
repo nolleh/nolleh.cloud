@@ -8,7 +8,7 @@
   $: translate = (key: string) => t(key, $locale);
 </script>
 
-<div class="container-footer w-container">
+<div class="container-footer w-container" data-footer>
   <div class="w-row">
     <div class="footer-column w-clearfix w-col w-col-4">
       <button 
@@ -415,5 +415,11 @@
 
   .footer-language-switcher {
     margin-top: 15px;
+  }
+
+  /* project pages Footer style - seamless connection */
+  :global(.footer-wrapper.project-page) [data-footer] {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 </style>

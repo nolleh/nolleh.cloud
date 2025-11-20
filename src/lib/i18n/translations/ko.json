@@ -33,16 +33,20 @@
       "ai": {
         "title": "AI 프로젝트",
         "period": "2025.04~",
-        "role": "개발/LD",
-        "description": "지식 기반 서비스의 개발",
-        "technologies": "",
-        "achievements": ""
+        "role": "PL/IC",
+        "overview": "지식 기반 서비스의 개발",
+        "description": "지식 기반 서비스의 개발.",
+        "contribution": "PL, RAG: 100%, knowledge api: 20%",
+        "technologies": "Python, FastApi, Celery, Kotlin, Spring, MSA, SQS",
+        "achievements": "Streaming (Chunking) Indexing, 1Gi memory For < 10MB PDF file, 80% Evaluation Score"
       },
       "dndn": {
         "title": "든든",
         "period": "",
-        "role": "",
+        "role": "PL/Architector/IC",
+        "overview": "로보어드바이저 트레이딩 시스템 개발",
         "description": "",
+        "contribution": "",
         "technologies": "",
         "achievements": ""
       },
@@ -51,6 +55,7 @@
         "period": "",
         "role": "",
         "description": "",
+        "contribution": "",
         "technologies": "",
         "achievements": ""
       },
@@ -58,7 +63,9 @@
         "title": "브라운 더스트 퍼즐",
         "period": "",
         "role": "",
+        "overview": "",
         "description": "",
+        "contribution": "",
         "technologies": "",
         "achievements": ""
       },
@@ -66,7 +73,9 @@
         "title": "게임서버 (피망 뉴맞고)",
         "period": "",
         "role": "",
+        "overview": "",
         "description": "",
+        "contribution": "",
         "technologies": "",
         "achievements": ""
       }
@@ -95,4 +104,3 @@
     "emailMe": "이메일:"
   }
 }
-
