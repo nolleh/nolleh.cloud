@@ -21,7 +21,7 @@
     }
   },
   "history": {
-    "title": "업력",
+    "title": "경력",
     "subtitle": "PL/IC로 빠르게 전달한 커리어 하이라이트",
     "highlights": "주요 성과",
     "techStack": "기술 스택",
@@ -46,7 +46,7 @@
         "description": "지식 기반 서비스의 개발.",
         "contribution": "PL, RAG: 100%, knowledge api: 20%",
         "technologies": "Python, FastApi, Celery, Kotlin, Spring, MSA, SQS",
-        "achievements": "Streaming (Chunking) Indexing, 1Gi memory For < 10MB PDF file, 80% Evaluation Score"
+        "achievements": "Streaming (Chunking) Indexing, 1Gi limit memory for < 10MB PDF file, 80% Evaluation Score"
       },
       "dndn": {
         "title": "든든",

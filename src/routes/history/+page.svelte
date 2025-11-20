@@ -141,6 +141,7 @@
     display: flex;
     min-height: 100vh;
     position: relative;
+    align-items: stretch;
   }
 
   .timeline-selector {
@@ -193,23 +194,25 @@
     position: relative;
     width: 100%;
     text-align: left;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 18px;
-    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.28) 0%, rgba(118, 75, 162, 0.35) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 22px;
+    padding: 1.75rem;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateX(calc(var(--index) * -15px));
-    opacity: 0.75;
+    opacity: 0.88;
     outline: none;
+    box-shadow: 0 16px 35px rgba(10, 14, 39, 0.55);
+    backdrop-filter: blur(12px);
   }
 
   .history-card:nth-child(2) {
-    background: linear-gradient(135deg, rgba(240, 147, 251, 0.15) 0%, rgba(245, 87, 108, 0.15) 100%);
+    background: linear-gradient(135deg, rgba(240, 147, 251, 0.32) 0%, rgba(245, 87, 108, 0.38) 100%);
   }
 
   .history-card:nth-child(3) {
-    background: linear-gradient(135deg, rgba(79, 172, 254, 0.15) 0%, rgba(0, 242, 254, 0.15) 100%);
+    background: linear-gradient(135deg, rgba(79, 172, 254, 0.28) 0%, rgba(0, 242, 254, 0.32) 100%);
   }
 
   .history-card:focus-visible {
@@ -220,8 +223,9 @@
   .history-card.active-card {
     transform: translateX(0) scale(1.02);
     opacity: 1;
-    border-color: rgba(255, 255, 255, 0.4);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.35);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 18px 45px rgba(102, 126, 234, 0.55);
+    opacity: 1;
   }
 
   .card-number {
@@ -235,22 +239,24 @@
     font-size: 1.25rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
+    color: #f6f8ff;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   }
 
   .card-role {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .card-period {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.72);
     margin-top: 0.5rem;
   }
 
   .detail-panel {
     flex: 1;
-    height: 100vh;
+    min-height: 100vh;
     padding: 4rem;
     display: flex;
     align-items: flex-start;
