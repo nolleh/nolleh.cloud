@@ -34,7 +34,7 @@
             <div class="w-col w-col-7 w-col-small-6 w-col-tiny-7">
               <h3 class="footer-titles">{translate('footer.learn')}</h3>
               <p class="footer-links">
-                <a href="/"><span class="footer-link">{translate('footer.introduction')}<br /></span></a>
+                <a href="/about"><span class="footer-link">{translate('footer.introduction')}<br /></span></a>
                 <a href="/history"><span class="footer-link">{translate('footer.workingHistory')}<br /></span></a>
                 <a href="/projects"><span class="footer-link">{translate('footer.participatedProjects')}<br /></span></a>
                 <a href="/#sc-skill"><span class="footer-link">{translate('footer.skills')}</span></a>

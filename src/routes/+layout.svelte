@@ -21,7 +21,9 @@
   });
   
   $: isProjectPage = browser && (
-    $page.url.pathname.startsWith('/projects') || $page.url.pathname.startsWith('/history')
+    $page.url.pathname.startsWith('/projects') ||
+    $page.url.pathname.startsWith('/history') ||
+    $page.url.pathname.startsWith('/about')
   );
   $: if (browser) {
     if ($page.url.pathname.startsWith('/projects/')) {

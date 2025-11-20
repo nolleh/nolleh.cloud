@@ -28,6 +28,57 @@
     "emptyState": "왼쪽에서 회사를 선택해주세요.",
     "emptyStateEn": "Select a company on the left to view the timeline."
   },
+  "about": {
+    "title": "소개",
+    "subtitle": "플랫폼부터 실시간 서버까지 기반을 다지는 엔지니어",
+    "mission": "새로운 서비스를 빠르게 전달하되, 핵심 뼈대는 견고하게 설계하고 데이터로 품질을 증명합니다.",
+    "overview": {
+      "paragraph1": "실시간 게임 서버, 백엔드 플랫폼, 핀테크 트레이딩, 블록체인, AI RAG까지 다양한 도메인을 직접 구축했습니다. C++/C#, Kotlin/Spring, TypeScript/NestJS, Python/FastAPI처럼 레이어가 달라도 문제를 정의하고 최적의 스택을 선택합니다.",
+      "paragraph2": "대규모 트래픽과 높은 리스크의 시스템을 다루며 확장성·안정성을 동시에 챙겨왔습니다. 220억원 규모의 자산을 굴리는 서비스, 특허 준비 중인 MCP Proxy, 1Gi 메모리로 동작하는 지식 검색을 실제 사용자에게 전달했습니다.",
+      "paragraph3": "팀과 함께 성장하는 방식을 중요하게 생각합니다. 코드리뷰, 문서화, 자동화 테스트를 통해 품질을 공유하고, 외부 발표나 오픈소스 기여로 경험을 환류합니다."
+    },
+    "stats": {
+      "experience": { "label": "총 경력", "value": "15+ 년" },
+      "projects": { "label": "대형 프로젝트", "value": "10+" },
+      "aum": { "label": "운용 자산 규모", "value": "220억 원" },
+      "talks": { "label": "강연 / OSS", "value": "10+ 회" }
+    },
+    "domains": {
+      "ai": {
+        "title": "AI / Knowledge Platform",
+        "description": "RAG 파이프라인, MCP Proxy, AI Agent를 직접 설계·구현하며 비용과 메모리를 극단적으로 최적화했습니다."
+      },
+      "fintech": {
+        "title": "Fintech & Trading",
+        "description": "로보어드바이저, 투자 상품, 리워드 플랫폼을 PL/IC로 리딩하며 리스크가 큰 금융 로직을 안정적으로 운영했습니다."
+      },
+      "realtime": {
+        "title": "Realtime Game Platform",
+        "description": "C/C++ 기반 룸 서버, RPC 프레임워크, 공통 백엔드를 만들어 수십 개 게임의 출시를 지원했습니다."
+      },
+      "devops": {
+        "title": "DevOps & Infra",
+        "description": "AWS/GCP, Kubernetes, Terraform, Helm Chart를 다루며 서비스 운영 자동화와 품질 게이트를 구축했습니다."
+      },
+      "sdk": {
+        "title": "Client / SDK",
+        "description": "Unity/Android SDK, MCP Registry CLI 등 클라이언트 도구를 함께 제작해 개발자 경험을 개선했습니다."
+      },
+      "community": {
+        "title": "Community & Sharing",
+        "description": "Google DevFest 발표, Hackpair 전시, 오픈소스 기여로 경험을 공개하고 동료와 인사이트를 나눕니다."
+      }
+    },
+    "principles": {
+      "title": "일하는 방식",
+      "items": {
+        "item1": "Core-first: 서비스의 뼈대를 먼저 설계하고 나머지를 빠르게 확장합니다.",
+        "item2": "Observable Delivery: 지표와 로그, 프로파일러를 통해 품질을 수치로 증명합니다.",
+        "item3": "Hands-on Leadership: PL이더라도 직접 코드를 작성하며 병목을 해소합니다.",
+        "item4": "Knowledge Sharing: 코드리뷰·문서·발표로 배운 것을 나누고 팀의 레벨을 맞춥니다."
+      }
+    }
+  },
   "projects": {
     "title": "프로젝트",
     "details": {

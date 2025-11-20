@@ -28,6 +28,57 @@
     "emptyState": "Pick a company on the left.",
     "emptyStateEn": "Select a card to see the detailed timeline."
   },
+  "about": {
+    "title": "About",
+    "subtitle": "Engineer who hardens the foundation from platforms to realtime servers",
+    "mission": "Ship new services fast while architecting a solid core and proving quality with data.",
+    "overview": {
+      "paragraph1": "I have built realtime game servers, backend platforms, fintech trading systems, blockchain services, and AI RAG pipelines. I pick the right stack for each problem—C++/C#, Kotlin/Spring, TypeScript/NestJS, Python/FastAPI—without hesitating to learn new layers.",
+      "paragraph2": "Large-scale traffic and high-stake services shaped my bar for stability. I operated products that handle 22 billion KRW AUM, delivered a patent-pending MCP proxy, and launched a 1Gi memory knowledge search service that users rely on.",
+      "paragraph3": "I care about how teams grow together. Code reviews, documentation, and automated tests make quality shareable, and public talks or OSS work feed the community back."
+    },
+    "stats": {
+      "experience": { "label": "Experience", "value": "15+ yrs" },
+      "projects": { "label": "Major projects", "value": "10+" },
+      "aum": { "label": "Assets handled", "value": "22B KRW" },
+      "talks": { "label": "Talks / OSS", "value": "10+ events" }
+    },
+    "domains": {
+      "ai": {
+        "title": "AI / Knowledge Platform",
+        "description": "Designed and implemented RAG pipelines, MCP proxies, and AI agents with extreme cost/memory optimization."
+      },
+      "fintech": {
+        "title": "Fintech & Trading",
+        "description": "Led robo advisor, investment, and reward services as PL/IC, keeping mission-critical finance flows reliable."
+      },
+      "realtime": {
+        "title": "Realtime Game Platform",
+        "description": "Created C/C++ room servers, RPC frameworks, and reusable backends that powered dozens of launches."
+      },
+      "devops": {
+        "title": "DevOps & Infra",
+        "description": "Operate AWS/GCP, Kubernetes, Terraform, Helm, and automation pipelines that enforce release quality."
+      },
+      "sdk": {
+        "title": "Client / SDK",
+        "description": "Build Unity/Android SDKs and tooling like the MCP registry CLI to elevate developer experience."
+      },
+      "community": {
+        "title": "Community & Sharing",
+        "description": "Give talks (Google DevFest, Hackpair) and contribute to OSS to circulate ideas and lessons."
+      }
+    },
+    "principles": {
+      "title": "How I work",
+      "items": {
+        "item1": "Core-first: architect the backbone, then scale features rapidly.",
+        "item2": "Observable delivery: prove quality with metrics, logs, and profilers.",
+        "item3": "Hands-on leadership: unblock teams by writing code as a PL/IC.",
+        "item4": "Knowledge sharing: keep reviews, docs, and talks active so the team levels up together."
+      }
+    }
+  },
   "projects": {
     "title": "Projects",
     "details": {
