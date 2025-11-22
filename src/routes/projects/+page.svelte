@@ -8,10 +8,8 @@
   // Reactive translation helper
   $: translate = (key: string) => t(key, $locale);
   
-  // 프로젝트 목록 (사용자가 언급한 프로젝트들)
   const projectIds = ['ai', 'dndn', 'heybit', 'bp', 'newmatgo'];
   
-  // 프로젝트 아이콘 매핑 (ai는 querypie 아이콘 사용)
   const projectIconMap: Record<string, string> = {
     'ai': 'querypie',
     'dndn': 'dndn',

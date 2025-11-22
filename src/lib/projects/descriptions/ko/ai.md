@@ -25,14 +25,10 @@ Python / Celery 를 이용하여 파일 업로드 등의 요청을 받는 FastAp
 | Contextucal Precision | 얻어진 context 가 정확하고 주요한지                    | 0.5       |
 
 deepeval 기준, 50% thresold metric 기준 Correctness 80% 에 도달하는 평가 확인
-bedrock: 78%
 
 - RAG 인프라 100%, Knowledge Api 20% 직접 개발
   - Knowledge Api 는 리뷰 위주로 진행하였으며, 리뷰에서 변경 요구되는 내용은 개인의 취향 외, 코드의 품질.
 
-- 최종 도입 판단 단계에서는 우선순위에 밀렸으나, 체크하였던 RAG 전략
-   - Query Expansion
-   - Contextual RAG
 
 indexing
 ```mermaid
@@ -52,7 +48,7 @@ search
 ```mermaid
 graph TD
   A[사용자 요청] -->|Query| B{Knowledge API}
-  B -->|Intent Routing| C[Vector Search]
+  B -->|Intent Routing With Bundle| C[Vector Search]
   C -->|Top-K Context| D[LLM Orchestrator]
   D --> E[응답 스트림]
 ```

@@ -101,18 +101,18 @@
       },
       "dndn": {
         "title": "든든",
-        "period": "",
+        "period": "2023.11~2025.01",
         "role": "PL/Architector/IC",
         "overview": "로보어드바이저 트레이딩 시스템 개발",
         "description": "",
-        "contribution": "",
-        "technologies": "",
-        "achievements": ""
+        "contribution": "PL, Architector 100%, Controller, Rebalancer, Trader, Exchanger 100%",
+        "technologies": "Spring, Kotlin, R2DBC, H2, TDD, Kafka, System Design, MySQL",
+        "achievements": "기존 배치 시스템의 한계를 극복하는 신규 시스템 구축, 트레이딩 시스템 구현, 자문(승인) 시스템 구현"
       },
       "heybit": {
         "title": "헤이비트",
-        "period": "",
-        "role": "",
+        "period": "2021.11 ~ 2023.11",
+        "role": "IC",
         "description": "",
         "contribution": "",
         "technologies": "",
@@ -120,23 +120,23 @@
       },
       "bp": {
         "title": "브라운 더스트 퍼즐",
-        "period": "",
-        "role": "",
-        "overview": "",
+        "period": "2021.01 ~ 2021.10",
+        "role": "IC",
+        "overview": "신규 게임 플랫폼 구축 도모 및 게임 콘텐츠 개발",
         "description": "",
         "contribution": "",
-        "technologies": "",
-        "achievements": ""
+        "technologies": "C#, ASP.NET, MSA, AWS, MySQL, DynamoDB, Terraform",
+        "achievements": "ASP.Net Attribute Rosyln Code Analysis 를 통한 `SDK` 자동 구축,  신규 서버 플랫폼 구축, 게임 콘텐츠 개발"
       },
       "newmatgo": {
         "title": "게임서버 (피망 뉴맞고)",
-        "period": "",
-        "role": "",
-        "overview": "",
+        "period": "2020 ~ 2021.01",
+        "role": "PL/Architector/IC",
+        "overview": "전(Total) 그룹사 인프라 이전 프로젝트 Studio Co-PL",
         "description": "",
-        "contribution": "",
-        "technologies": "",
-        "achievements": ""
+        "contribution": "통합/스트레스테스트 구현/구성 100%, 게임 특화 로직 구성 가이드, 신규 인프라 관련 게임서버 변경 제안, 통합테스트 실제 진행, 이슈 원인 파악 및 라우팅",
+        "technologies": "C++, C#, Java, JMeter, C++/CLI, DLL, Windows",
+        "achievements": "Cloud 환경을 위한 게임 서버 아키텍트 제안, 게임 트래픽 메트릭 분석, 테스트 전략 수립, 통합 분산 스트레스 테스팅 툴/시나리오 구현/환경 구성 (MCU 160000), 테스트 진행 및 테스트 이슈 분석/담당 부서 전달, 인프라 이전 성공적으로 오픈/ 특이 이슈 X"
       }
     }
   },
