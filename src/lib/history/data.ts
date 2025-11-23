@@ -74,30 +74,40 @@ const querypieEn: CareerStage = {
   ...querypieKo,
   period: 'Feb 2025 – Present',
   summary:
-    'Lead backend / platform engineer for QueryPie AI, delivering RAG knowledge services, MCP proxy, and DB access control with the same visual theme as the project hub.',
+    'Developed necessary features during AI platform development, bringing RAG knowledge service, MCP Proxy, and DB access control engine to production level in a short time.',
   projects: [
     {
       ...querypieKo.projects[0],
       period: 'Jul 2025 – Present',
       summary:
-        'Acted as both planner and IC to ship the first RAG-based knowledge service release in one month three weeks.',
+        'Acted as both PL and IC, bringing knowledge-based RAG service to first deployment in 1 month 3 weeks.',
       highlights: [
-        'Designed and implemented the entire upload → parsing → chunking → embedding pipeline.',
-        'Delivered streaming (chunking) indexing in two days, cutting memory 90% for text and 40% for PDFs so a 1Gi pod can process 10MB files.',
-        'Encrypted every customer document with CBC and profiled pods via py-spy, memray, and ephemeral containers.',
-        'Guarded retrieval quality with DeepEval and achieved 80% pass on 100 QA pairs.'
+        'Designed and implemented entire upload → parsing → chunking → embedding pipeline.',
+        'Introduced chunking-based streaming indexing in 2 days, reducing memory by 90% for text and 40% for PDFs, processing 10MB files with 1Gi resources.',
+        'Encrypted customer knowledge across all storage stages with CBC encryption and conducted real-time profiling with py-spy/memray + ephemeral container.',
+        'Managed retriever quality with DeepEval metrics, achieving 80% correctness on 100 QA pairs.'
       ]
     },
     {
       ...querypieKo.projects[1],
       period: 'Apr 2025 – Jun 2025',
       summary:
-        'Built patent-pending MCP proxy plus ADK-based agents and a registry that curates MCP servers and automates installs.'
+        'Pioneered development of MCP protocol-interpreting Proxy and internal work agents/registry, currently patent pending.',
+      highlights: [
+        'Completed MCP Proxy for tool access control and audit logs in 4 days, demonstrated at company town hall.',
+        'Implemented multi-log analysis and meeting preparation automation with ADK-based ErrorSherlock and BriefButler agents.',
+        'Built Registry server/admin/CLI and controlled MCP processes via IPC, configured so LLM suggests execution scripts when only GitHub URL is input.'
+      ]
     },
     {
       ...querypieKo.projects[2],
       period: 'Feb 2025 – Mar 2025',
-      summary: 'Maintained the QueryPie DAC proxy/engine and expanded multi-vendor protocol coverage.'
+      summary: 'Maintained DB Proxy/Engine layer and expanded new protocols.',
+      highlights: [
+        'Added RESP3 (redis) protocol across entire Proxy and Engine sections.',
+        'Conducted Oracle protocol reverse engineering to define future support scope.',
+        'Checked QueryPie user permission verification and masking logic, improving operational quality.'
+      ]
     }
   ]
 };
@@ -130,7 +140,7 @@ const upriseKo: CareerStage = {
       period: '2023 ~ 2023.11',
       summary: '첫 FE 도전이었던 프로젝트로, 단일 레포에서 FE+BE를 5일 만에 가동시켰습니다.',
       highlights: [
-        'NestJS와 Svelte를 한 저장소에서 운영하며 인증/멤버십/비즈니스 로직을 모두 담당했습니다.',
+        'FE/BE 을 Svelte 를 기반으로 한 저장소에서 운영하며 인증/멤버십/비즈니스 로직을 모두 담당했습니다.',
         'TDD로 생산성을 유지하며 Cloudflare Pages와 Supabase로 초기 셋업을 빠르게 끝냈습니다.'
       ],
       stack: ['TypeScript', 'NestJS', 'Svelte', 'Supabase', 'EKS', 'Helm', 'TDD', 'Cloudflare Pages']
@@ -143,7 +153,7 @@ const upriseKo: CareerStage = {
       highlights: [
         '주차별 이자 지급 패스북 서비스를 3주 만에 개발했습니다.',
         '락업 상품을 6일 만에, 리워드 PERRY 기능을 11일 만에 구축해 NRU를 25배 끌어올렸습니다.',
-        '애플리케이션 레벨에서 최초로 K8S 클러스터로 이전하며 DevOps 환경을 마련했습니다.'
+        '사내 최초로 K8S 클러스터로 이전된 프로젝트며, 어플리케이션 레벨의 기능을 구현했습니다.'
       ],
       stack: ['TypeScript', 'NestJS', 'MSA', 'EKS', 'Helm', 'Kubernetes', 'TDD']
     }
@@ -154,25 +164,36 @@ const upriseEn: CareerStage = {
   ...upriseKo,
   period: 'Nov 2021 – Jan 2025',
   summary:
-    'Owned fintech backends for robo advisor, reward, and investment APIs, jumping between Kotlin trading services and TypeScript microservices.',
+    'Owned B2C investment/reward services, rapidly delivering robo advisor, reward, and fintech APIs using Kotlin and TypeScript stacks.',
   projects: [
     {
       ...upriseKo.projects[0],
-      period: 'Nov 2023 – Present',
-      summary:
-        'Rebuilt the robo advisor trading core, aligned the new architecture with the team, and shipped shared modules that react to every HTS event.'
+      period: 'Nov 2023 – Jan 2025',
+      summary: 'Redesigned existing trading system and directly implemented common modules to launch new products.',
+      highlights: [
+        'Diagnosed existing system issues, proposed new architecture, and coordinated with development team.',
+        'Designed and implemented common modules handling portfolio rebalancing and HTS events.',
+        'Launched as live service product and managed actual customer assets.'
+      ]
     },
     {
       ...upriseKo.projects[1],
       period: '2023 – Nov 2023',
-      summary:
-        'First full-stack (FE+BE) project; bootstrapped a mono-repo Svelte + NestJS service and shipped a working frame in five days.'
+      summary: 'First FE challenge project; bootstrapped FE+BE in a single repo and got it running in 5 days.',
+      highlights: [
+        'Operated FE/BE with Svelte in one repository, handling authentication/membership/business logic.',
+        'Maintained productivity with TDD and quickly completed initial setup with Cloudflare Pages and Supabase.'
+      ]
     },
     {
       ...upriseKo.projects[2],
-      period: 'Nov 2021 – 2023',
-      summary:
-        'Solo backend engineer for Heybit investment APIs, covering weekly interest products, lock-up services, and reward contents while migrating to Kubernetes.'
+      period: 'Nov 2021 – Nov 2023',
+      summary: 'Developed deposit, withdrawal, lock-up, and reward APIs as solo backend and migrated infrastructure to K8S.',
+      highlights: [
+        'Developed weekly interest payment passbook service in 3 weeks.',
+        'Built lock-up product in 6 days and reward PERRY feature in 11 days, increasing NRU by 25x.',
+        'First migration to K8S cluster in this company, do application level implementaion.'
+      ]
     }
   ]
 };
@@ -273,42 +294,54 @@ const neowizEn: CareerStage = {
   projects: [
     {
       ...neowizKo.projects[0],
-      summary:
-        'Built reusable HTTP/WebSocket content frames and auto-generated Unity SDKs through a Roslyn-based pipeline.'
+      summary: 'Built game common server providing reusable HTTP/WebSocket content frames.',
+      highlights: [
+        'Created Roslyn pipeline that analyzes server code to automatically generate client SDK.',
+        'Operated infrastructure on IaC basis with Terraform and AWS ECS/Fargate.'
+      ]
     },
     {
       ...neowizKo.projects[1],
-      summary:
-        'Co-led the studio wide AWS migration and automated release-readiness tests with reusable game-bot modules.'
+      summary: 'Co-led studio-wide AWS migration project as Co-PL, automating integrated load tests before release.',
+      highlights: [
+        'Managed schedule/quality for ~200 person organization, validating Pmang Matgo/Sutda/Poker/Blackjack.',
+        'Designed reusable game bot platform and scenarios, applying to multiple projects.'
+      ]
     },
     {
       ...neowizKo.projects[2],
-      summary:
-        'Implemented EOS smart contracts plus Node.js/Golang backends under an MSA architecture with GCP K8S DevOps.'
+      summary: 'Blockchain project developing EOS smart contracts and Node.js/Golang backends simultaneously.',
+      highlights: [
+        'Configured dApp backend with MSA architecture and set up DevOps with GCP K8S/istio/jenkins/spinnaker.'
+      ]
     },
     {
       ...neowizKo.projects[3],
-      summary:
-        'Delivered a Spring-like WebSocket RPC framework with DI/service/controller/feign semantics and shipped matching client SDKs.'
+      summary: 'Designed WebSocket-based RPC framework that Spring developers can use immediately.',
+      highlights: [
+        'Provided compatible APIs for DI, Service, Controller, Feign Client, Spring Cloud Stream, Eureka Client.',
+        'Deployed client SDK together and integrated with room-based game servers.'
+      ]
     },
     {
       ...neowizKo.projects[4],
-      summary:
-        'Produced a C/C++ multithreaded room server for Blackjack and a Unity SDK using RabbitMQ for distributed coordination.'
+      summary: 'Produced C/C++ based multi-threaded room server and Unity SDK.',
+      highlights: ['Supported global launch with RabbitMQ-based distributed processing and C# client SDK.']
     },
     {
       ...neowizKo.projects[5],
-      summary:
-        'Acted as the main programmer for Matgo/Sutda/Poker realtime servers, driving code reviews and service stability.'
+      summary: 'Operated room-based realtime server as main programmer and led code review culture.',
+      highlights: ['Advanced C/C++ multi-threaded socket server and maintained stable live service.']
     },
     {
       ...neowizKo.projects[6],
-      summary:
-        'Created the Android/Unity membership SDK (Pmang Plus) that unified login and entitlement across titles.'
+      summary: 'Created Android/Unity integrated membership SDK to unify mobile game onboarding.',
+      highlights: ['Defined client/server interfaces and authentication flows.']
     },
     {
       ...neowizKo.projects[7],
-      summary: 'Built the Bugs Muzaic/Equalizer Android music apps end to end.'
+      summary: 'Developed music player apps (Bugs Muzaic/Equalizer) and built mobile capabilities.',
+      highlights: ['Directly implemented Android audio pipeline and UI.']
     }
   ]
 };

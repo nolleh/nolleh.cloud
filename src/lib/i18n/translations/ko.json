@@ -38,7 +38,7 @@
       "paragraph3": "팀과 함께 성장하는 방식을 중요하게 생각합니다. 코드리뷰, 문서화, 자동화 테스트를 통해 품질을 공유하고, 외부 발표나 오픈소스 기여로 경험을 환류합니다."
     },
     "stats": {
-      "experience": { "label": "총 경력", "value": "15+ 년" },
+      "experience": { "label": "총 경력", "value": "10+ 년" },
       "projects": { "label": "중/대형 프로젝트", "value": "5+" },
       "aum": { "label": "운용 자산 규모", "value": "220억 원" },
       "talks": { "label": "강연 / OSS", "value": "10+ 회" }
