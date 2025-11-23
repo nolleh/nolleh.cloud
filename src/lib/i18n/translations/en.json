@@ -20,8 +20,126 @@
       "tags": "#Restful Api #Asp.Net #Node.js #Platform #Contents (Game/Fintech) #BlockChain #MSA"
     }
   },
+  "history": {
+    "title": "Working History",
+    "subtitle": "Highlights delivered as PL/IC",
+    "highlights": "Highlights",
+    "techStack": "Tech Stack",
+    "emptyState": "Pick a company on the left.",
+    "emptyStateEn": "Select a card to see the detailed timeline."
+  },
+  "about": {
+    "title": "About",
+    "subtitle": "Engineer who hardens the foundation from platforms to realtime servers",
+    "mission": "Ship new services fast while architecting a solid core and proving quality with data.",
+    "overview": {
+      "paragraph1": "I have built realtime game servers, backend platforms, fintech trading systems, blockchain services, and AI RAG pipelines. I pick the right stack for each problem—C++/C#, Kotlin/Spring, TypeScript/NestJS, Python/FastAPI—without hesitating to learn new layers.",
+      "paragraph2": "Large-scale traffic and high-stake services shaped my bar for stability. I operated products that handle 22 billion KRW AUM, delivered a patent-pending MCP proxy, and launched a 1Gi memory knowledge search service that users rely on.",
+      "paragraph3": "I care about how teams grow together. Code reviews, documentation, and automated tests make quality shareable, and public talks or OSS work feed the community back."
+    },
+    "stats": {
+      "experience": { "label": "Total Experience", "value": "10+ yrs" },
+      "projects": { "label": "Mid/Large Projects", "value": "5+" },
+      "aum": { "label": "Assets Under Management", "value": "22B KRW" },
+      "talks": { "label": "Talks / OSS", "value": "10+ events" }
+    },
+    "domains": {
+      "ai": {
+        "title": "AI / Knowledge Platform",
+        "description": "Designed and implemented RAG pipelines, MCP proxies, and AI agents with extreme cost/memory optimization."
+      },
+      "fintech": {
+        "title": "Fintech & Trading",
+        "description": "Led robo advisor, investment, and reward services as PL/IC, keeping mission-critical finance flows reliable."
+      },
+      "realtime": {
+        "title": "Realtime Game Platform",
+        "description": "Created C/C++ room servers, RPC frameworks, and reusable backends that supported launches of multiple games."
+      },
+      "devops": {
+        "title": "DevOps & Infra",
+        "description": "Operate AWS/GCP, Kubernetes, Terraform, Helm, and automation pipelines that enforce release quality."
+      },
+      "sdk": {
+        "title": "Client / SDK",
+        "description": "Build Unity/Android SDKs and tooling like the MCP registry CLI to elevate developer experience."
+      },
+      "community": {
+        "title": "Community & Sharing",
+        "description": "Give talks (Google DevFest, Hackpair) and contribute to OSS to circulate ideas and lessons."
+      }
+    },
+    "principles": {
+      "title": "How I work",
+      "items": {
+        "item1": "Core-first: architect the backbone, then scale features rapidly.",
+        "item2": "Observable delivery: prove quality with metrics, logs, and profilers.",
+        "item3": "Hands-on leadership: unblock teams by writing code as a PL/IC.",
+        "item4": "Knowledge sharing: keep reviews, docs, and talks active so the team levels up together."
+      }
+    }
+  },
   "projects": {
-    "title": "Projects"
+    "title": "Projects",
+    "details": {
+      "period": "Period",
+      "role": "Role",
+      "description": "Description",
+      "overview": "Project Overview",
+      "contribution": "Contribution",
+      "technologies": "Technologies",
+      "achievements": "Achievements",
+      "ai": {
+        "title": "AI Project",
+        "period": "2025.04~",
+        "role": "PL/IC",
+        "overview": "Development of knowledge-based service",
+        "description": "Development of knowledge-based service.",
+        "contribution": "PL, RAG: 100%, knowledge api: 20%",
+        "technologies": "Python, FastApi, Celery, Kotlin, Spring, MSA, SQS",
+        "achievements": "Streaming (Chunking) Indexing, 1Gi limit memory for < 10MB PDF file, 80% Evaluation Score"
+      },
+      "dndn": {
+        "title": "Dndn",
+        "period": "2023.11~2025.01",
+        "role": "PL/Architector/IC",
+        "overview": "Robo advisor trading system development",
+        "description": "",
+        "contribution": "PL, Architector 100%, Controller, Rebalancer, Trader, Exchanger 100%",
+        "technologies": "Spring, Kotlin, R2DBC, H2, TDD, Kafka, System Design, MySQL",
+        "achievements": "Built new system overcoming limitations of existing batch system, implemented trading system, implemented advisory (approval) system"
+      },
+      "heybit": {
+        "title": "Heybit",
+        "period": "2021.11 ~ 2023.11",
+        "role": "IC",
+        "overview": "Digital asset deposit service, Harvest",
+        "description": "",
+        "contribution": "Harvest/LockUp/Perry/Development schedule management (With FE) (100%)",
+        "technologies": "TypeScript, NestJS, TDD, MSA, MySQL",
+        "achievements": "Zero asset incidents, Delivered in 1 Month, LockUp Delivered in 6 Days, Perry(Reward) Delivered in 11 Days, Perry System Increased NRU 25 times"
+      },
+      "bp": {
+        "title": "Brown Dust Puzzle",
+        "period": "2021.01 ~ 2021.10",
+        "role": "IC",
+        "overview": "Puzzle RPG game utilizing Neowiz's Brown Dust IP. Building new game platform and developing game content",
+        "description": "",
+        "contribution": "Autogenerated SDK(100%), MSA Contents (Campaign, League, Store, Mission, BattlePass, above services 100%), AWS environment maintenance DevOps (30%)",
+        "technologies": "C#, ASP.NET, MSA, SQS, AWS, MySQL, DynamoDB, Terraform",
+        "achievements": "Automatic `SDK` generation through ASP.Net Attribute Roslyn Code Analysis, new server platform construction, game content development, infrastructure configuration management/DevOps through Terraform"
+      },
+      "newmatgo": {
+        "title": "Game Server (Pmang Newmatgo)",
+        "period": "2020 ~ 2021.01",
+        "role": "PL/Architector/IC",
+        "overview": "Company-wide infrastructure migration project Studio Co-PL",
+        "description": "",
+        "contribution": "Integration/stress test implementation/configuration 100%, game-specific logic configuration guide, game server change proposals for new infrastructure, actual integration test execution, issue root cause analysis and routing",
+        "technologies": "C++, C#, Java, JMeter, C++/CLI, DLL, Windows",
+        "achievements": "Game server architecture proposal for Cloud environment, game traffic metric analysis, test strategy establishment, integrated distributed stress testing tool/scenario implementation/environment configuration (MCU 160000), test execution and test issue analysis/department routing, successful infrastructure migration launch/ zero unusual issues"
+      }
+    }
   },
   "personalActivities": {
     "title1": "Personal Activities #1",

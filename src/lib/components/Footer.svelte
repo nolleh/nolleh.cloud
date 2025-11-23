@@ -1,5 +1,6 @@
 <script lang="ts">
   import { locale } from '$lib/stores/locale';
+  import { goto } from '$app/navigation';
   import { t } from '$lib/i18n';
   import LanguageSwitcher from '$lib/components/LanguageSwitcher.svelte';
   
@@ -7,17 +8,24 @@
   $: translate = (key: string) => t(key, $locale);
 </script>
 
-<div class="container-footer w-container">
+<div class="container-footer w-container" data-footer>
   <div class="w-row">
     <div class="footer-column w-clearfix w-col w-col-4">
-      <img
-        src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/596d33f36607b12cfdaf8ad2_LogoWhite.png"
-        alt=""
-        width="40"
-        class="failory-logo-image"
-      />
-      <h3 class="footer-failory-name">Nolleh</h3>
-      <p class="footer-description-failory">{translate('footer.description')}<br /></p>
+      <button 
+        class="footer-brand-button"
+        on:click={() => goto("/")}
+        type="button"
+        aria-label="Go to homepage"
+      >
+        <img
+          src="https://uploads-ssl.webflow.com/5966ea9a9217ca534caf139f/596d33f36607b12cfdaf8ad2_LogoWhite.png"
+          alt="Nolleh Logo"
+          width="40"
+          class="failory-logo-image"
+        />
+        <h3 class="footer-failory-name">Nolleh</h3>
+        <p class="footer-description-failory">{translate('footer.description')}<br /></p>
+      </button>
     </div>
     <div class="footer-column w-col w-col-8">
       <div class="w-row">
@@ -26,21 +34,20 @@
             <div class="w-col w-col-7 w-col-small-6 w-col-tiny-7">
               <h3 class="footer-titles">{translate('footer.learn')}</h3>
               <p class="footer-links">
-                <a href="" target="_blank"><span class="footer-link">{translate('footer.introduction')}<br /></span></a>
-                <a href="" target="_blank"><span class="footer-link">{translate('footer.workingHistory')}<br /></span></a
-                >
-                <a href=""><span class="footer-link">{translate('footer.participatedProjects')}<br /></span></a><a
-                  href=""><span class="footer-link">{translate('footer.skills')}</span></a
-                ><span><br /></span>
+                <a href="/about"><span class="footer-link">{translate('footer.introduction')}<br /></span></a>
+                <a href="/history"><span class="footer-link">{translate('footer.workingHistory')}<br /></span></a>
+                <a href="/projects"><span class="footer-link">{translate('footer.participatedProjects')}<br /></span></a>
+                <a href="/#sc-skill"><span class="footer-link">{translate('footer.skills')}</span></a>
+                <span><br /></span>
                 <strong><br /></strong>
               </p>
             </div>
             <div class="w-col w-col-5 w-col-small-6 w-col-tiny-5">
               <h3 class="footer-titles">{translate('footer.other')}</h3>
               <p class="footer-links">
-                <a href=""><span class="footer-link">{translate('footer.personalActivities')}<br /></span></a>
-                <a href=""><span class="footer-link">{translate('footer.personalProducts')}<br /></span></a>
-                <a href=""><span class="footer-link">{translate('footer.scraps')}<br /></span></a>
+                <a href="/#sc-personal"><span class="footer-link">{translate('footer.personalActivities')}<br /></span></a>
+                <a href="/#sc-personal2"><span class="footer-link">{translate('footer.personalProducts')}<br /></span></a>
+                <a href="/#sc-personal3"><span class="footer-link">{translate('footer.scraps')}<br /></span></a>
                 <strong><br /></strong>
               </p>
             </div>
@@ -173,6 +180,31 @@
     grid-column-start: 1;
     grid-row-end: 2;
     grid-row-start: 1;
+  }
+
+  button.footer-brand-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    transition: opacity 0.2s ease;
+  }
+
+  button.footer-brand-button:hover {
+    opacity: 0.9;
+  }
+
+  button.footer-brand-button:active {
+    opacity: 0.8;
+  }
+
+  button.footer-brand-button:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 4px;
+    border-radius: 4px;
   }
 
   img.failory-logo-image {
@@ -382,5 +414,11 @@
 
   .footer-language-switcher {
     margin-top: 15px;
+  }
+
+  /* project pages Footer style - seamless connection */
+  :global(.footer-wrapper.project-page) [data-footer] {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 </style>
