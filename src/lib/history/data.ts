@@ -23,11 +23,11 @@ type SupportedLocale = 'ko' | 'en';
 const querypieKo: CareerStage = {
   id: 'querypie',
   company: 'QueryPie',
-  role: 'Lead Backend / Platform Engineer',
+  role: 'PL / Backend / Platform Engineer',
   period: '2025.02 ~ 현재',
-  location: 'Seongnam, Korea',
+  location: 'Seoul, Korea',
   summary:
-    'AI 플랫폼 백엔드 전체를 리딩하며 RAG 지식 서비스, MCP Proxy, DB 접근제어 엔진을 단기간에 프로덕션 수준으로 끌어올렸습니다.',
+    'AI 플랫폼 개발 진행간 필요한 기능들을 개발하였으며, RAG 지식 서비스, MCP Proxy, DB 접근제어 엔진을 단기간에 프로덕션 수준으로 끌어올렸습니다.',
   badges: ['AI Platform', 'Security', 'Rapid Delivery'],
   projects: [
     {
@@ -105,7 +105,7 @@ const querypieEn: CareerStage = {
 const upriseKo: CareerStage = {
   id: 'uprise',
   company: 'Uprise',
-  role: 'Backend Lead / Trading Platform Engineer',
+  role: 'PL / Backend / Trading Platform Engineer',
   period: '2021.11 ~ 2025.01',
   location: 'Seoul, Korea',
   summary:
@@ -180,9 +180,9 @@ const upriseEn: CareerStage = {
 const neowizKo: CareerStage = {
   id: 'neowiz',
   company: 'Neowiz',
-  role: 'Realtime Game / Platform Engineer',
+  role: 'PL / Realtime Game / Platform Engineer',
   period: '2011.01 ~ 2021.10',
-  location: 'Seoul, Korea',
+  location: 'Seongnam, Korea',
   summary:
     '10년간 실시간 게임 서버, 공통 백엔드, 블록체인, RPC 프레임워크까지 폭넓은 플랫폼을 설계하고 직접 구현했습니다.',
   badges: ['Realtime', 'Game Server', 'Platform'],

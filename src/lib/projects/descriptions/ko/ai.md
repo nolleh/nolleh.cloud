@@ -19,10 +19,10 @@ Python / Celery 를 이용하여 파일 업로드 등의 요청을 받는 FastAp
 
 | Metric | Desc                                                   | threshold |
 | --------------------- | ------------------------------------------------------ | --------- |
+| Contextucal Precision | 얻어진 context 가 정확하고 주요한지                    | 0.5       |
+| Contextual Recall     | 얻어진 context 가 유관한 정보를 갖고 있는지            | 0.5       |
 | Answer Relevance      | 유저의 질의와 유관한지에 대한 평가                     | 0.5       |
 | Faithfulness          | 생성된 응답이 실질적으로 제공된 응답의 맥락과 일치한지 | 0.5       |
-| Contextual recall     | 얻어진 context 가 유관한 정보를 갖고 있는지            | 0.5       |
-| Contextucal Precision | 얻어진 context 가 정확하고 주요한지                    | 0.5       |
 
 deepeval 기준, 50% thresold metric 기준 Correctness 80% 에 도달하는 평가 확인
 

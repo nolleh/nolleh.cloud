@@ -5,7 +5,7 @@ On Premise 환경으로 구동 되던 Neowiz Group 의 서버들을 Cloud 환경
 
 Stateful 한 게임 서버이므로 유저의 실제 트래픽 패턴이 실제 동작성에 많은 영향을 미칠 수 있으므로 필요한 분석이었으며, 게임 서버의 콘텐츠 로직이 Web Api 로 구성된 것도 있었으나, 소켓기반 통신이 필요하며, 실제 게임 룸 로직은 DLL 로 구성되어 일반적인 스트레스테스팅 툴로는 분석이 불가.  하여 분산 스트레스테스팅 툴도 직접 구현.
 
-본 웹보드 인프라 이전 프로젝트 참여 유관 인력은 < 200 명 정도.
+본 웹보드 인프라 이전 프로젝트 참여 유관 인력은 < 200 명 정도, `Co-PL` 로 참여. 게임플레이 관련한 검증 100% 담당.
 
 실제 트래픽의 부하를 새 인프라에서 '정상적' 으로 게임플레이가 가능한지 확실하게 검증하고자 하였으므로, MCU (동시 접속자 수) 16만의 traffic 을 스트레스 테스팅 툴에서 구동.
 
@@ -37,7 +37,7 @@ subgraph TestMachine
     JMeter-->StressTestTool-->TOOL-INGAME-LOGIC-DLL
 end
 
-TestMachine-AWS-->MatgoServer
+TestMachine-AWS-->|160,000 User's Play|MatgoServer
 ```
 
 
