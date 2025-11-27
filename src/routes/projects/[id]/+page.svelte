@@ -298,6 +298,8 @@
   }
   
   .project-list.compact {
+    display: flex;
+    flex-direction: column;
     gap: 0.75rem;
   }
   
@@ -727,11 +729,29 @@
       overflow-x: auto;
       overflow-y: hidden;
       padding-bottom: 0.5rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+    }
+    
+    .project-list.compact::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .project-list.compact::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 3px;
+    }
+    
+    .project-list.compact::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 3px;
     }
     
     .project-card.compact {
-      min-width: 120px;
-      height: 70px;
+      min-width: 140px;
+      flex-shrink: 0;
+      height: 80px;
     }
     
     .detail-panel {
