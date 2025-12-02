@@ -169,9 +169,13 @@
     display: flex;
     overflow-y: scroll;
     height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for foldable devices */
     flex: none;
     flex-flow: column nowrap;
     scroll-snap-type: y mandatory;
+    /* Account for foldable device safe areas */
+    padding-top: env(safe-area-inset-top, 0);
+    padding-bottom: env(safe-area-inset-bottom, 0);
   }
 
   section {
@@ -180,6 +184,10 @@
     align-content: center;
     width: 100%;
     min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for foldable devices */
+    /* Account for foldable device fold area */
+    padding-top: max(env(safe-area-inset-top, 0), env(viewport-segment-top 0 0, 0));
+    padding-bottom: max(env(safe-area-inset-bottom, 0), env(viewport-segment-bottom 0 0, 0));
     background-repeat: no-repeat;
     /* background-size: 100% auto; */
     background-size: cover;
