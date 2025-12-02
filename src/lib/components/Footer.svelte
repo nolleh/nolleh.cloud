@@ -421,4 +421,156 @@
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
+
+  /* Mobile responsive styles */
+  @media screen and (max-width: 768px) {
+    div.container-footer.w-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    div.w-row {
+      margin-left: 0;
+      margin-right: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Brand column - full width at top */
+    div.footer-column.w-clearfix.w-col.w-col-4 {
+      float: none;
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+
+    /* Main content column - full width */
+    div.footer-column.w-col.w-col-8 {
+      float: none;
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Inner row for links - 2 column grid */
+    div.footer-column.w-col.w-col-8 > div.w-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    /* Links container - 2 column grid for Introduction and Other */
+    div.footer-column.w-col.w-col-8 > div.w-row > div.w-col.w-col-8 {
+      float: none;
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    div.footer-column.w-col.w-col-8 > div.w-row > div.w-col.w-col-8 > div.w-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Introduction and Other columns - side by side */
+    div.w-col.w-col-7.w-col-small-6.w-col-tiny-7,
+    div.w-col.w-col-5.w-col-small-6.w-col-tiny-5 {
+      float: none;
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Follow Me column - full width at bottom */
+    div.column-center-mobile.w-col.w-col-4 {
+      float: none;
+      width: 100% !important;
+      padding-left: 0;
+      padding-right: 0;
+      margin-top: 1rem;
+    }
+
+    /* Adjust logo and brand name */
+    img.failory-logo-image {
+      float: none;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    h3.footer-failory-name {
+      margin-left: 0;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    p.footer-description-failory {
+      margin-top: 0;
+    }
+
+    /* Adjust section titles */
+    h3.footer-titles {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 18px;
+    }
+
+    /* Adjust links */
+    p.footer-links {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    /* Social icons */
+    a.footer-social-network-icons.w-inline-block {
+      margin-right: 12px;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    p.footer-description {
+      margin-top: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-language-switcher {
+      margin-top: 0.75rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    div.container-footer.w-container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    /* Very small screens - stack everything vertically */
+    div.footer-column.w-col.w-col-8 > div.w-row > div.w-col.w-col-8 > div.w-row {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    div.column-center-mobile.w-col.w-col-4 {
+      margin-top: 1.5rem;
+    }
+
+    h3.footer-titles {
+      font-size: 16px;
+      margin-top: 1rem;
+    }
+
+    h3.footer-titles:first-of-type {
+      margin-top: 0;
+    }
+
+    p.footer-links,
+    p.footer-description,
+    p.footer-description-failory {
+      font-size: 15px;
+    }
+  }
 </style>
