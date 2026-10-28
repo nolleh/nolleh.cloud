@@ -81,6 +81,8 @@
   },
   "projects": {
     "title": "프로젝트",
+    "clickHint": "클릭하여 상세 정보 보기",
+    "emptyState": "프로젝트에 마우스를 올려보세요",
     "details": {
       "period": "기간",
       "role": "역할",
@@ -89,11 +91,21 @@
       "contribution": "기여도",
       "technologies": "기술 스택",
       "achievements": "주요 성과",
+      "query-analysis": {
+        "title": "쿼리 분석 및 데이터 접근제어",
+        "period": "2025.12~",
+        "role": "핵심 IC · 쿼리 분석 주 담당 · 기능 딜리버리/스프린트 운영",
+        "overview": "AST 기반 쿼리 분석으로 데이터 마스킹, 위험 쿼리 통제 및 클라우드 비용 보호 기능 제공",
+        "description": "",
+        "contribution": "ANSI SQL 분석 및 데이터 소스 추적, 마스킹 정책 적용, Scan 탐지·차단, 선언형 E2E 테스트 플랫폼 구축, 주요 계약 기능 딜리버리와 스프린트 운영",
+        "technologies": "C#, .NET, AST, ANSI SQL, PartiQL, DynamoDB, TypeScript, Playwright Test, JSON Manifest",
+        "achievements": "다중 DB 벤더를 위한 공통 접근제어 기능 확장, 쿼리 실행 위험과 AWS 비용의 사전 통제, 버전·마이그레이션·회귀 테스트의 재사용 자동화, 주요 고객 계약에 직결된 핵심 기능 전달"
+      },
       "ai": {
-        "title": "AI 프로젝트",
-        "period": "2025.04~",
-        "role": "PL/IC",
-        "overview": "지식 기반 서비스의 개발",
+        "title": "RAG 지식 플랫폼",
+        "period": "2025.07~2025.11",
+        "role": "RAG PL · Core IC",
+        "overview": "조직별 지식 소스를 활용하는 RAG 기반 지식 플랫폼 구축",
         "description": "지식 기반 서비스의 개발.",
         "contribution": "PL, RAG: 100%, knowledge api: 20%",
         "technologies": "Python, FastApi, Celery, Kotlin, Spring, MSA, SQS",
@@ -102,12 +114,12 @@
       "dndn": {
         "title": "든든",
         "period": "2023.11~2025.01",
-        "role": "PL/Architector/IC",
-        "overview": "로보어드바이저 트레이딩 시스템 개발",
+        "role": "Project Lead · Software Architect · Core IC",
+        "overview": "배치 기반 투자 시스템을 Account 중심의 이벤트 기반 로보어드바이저 플랫폼으로 재구축",
         "description": "",
-        "contribution": "PL, Architector 100%, Controller, Rebalancer, Trader, Exchanger 100%",
+        "contribution": "전체 아키텍처 및 서비스 경계 설계, Account·Exchanger·Rebalancer·Trader와 공통 모듈 구현, 프로덕션 전환 주도",
         "technologies": "Spring, Kotlin, R2DBC, H2, TDD, Kafka, System Design, MySQL",
-        "achievements": "기존 배치 시스템의 한계를 극복하는 신규 시스템 구축, 트레이딩 시스템 구현, 자문(승인) 시스템 구현"
+        "achievements": "기존 배치 구조를 대체하는 Account 중심의 이벤트 기반 투자 시스템 신규 구축, 트레이딩·자문(승인) 시스템 구현, 계좌 상태 불일치 문제 해소"
       },
       "heybit": {
         "title": "헤이비트",

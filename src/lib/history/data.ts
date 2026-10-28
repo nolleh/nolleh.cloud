@@ -27,13 +27,27 @@ const querypieKo: CareerStage = {
   period: '2025.02 ~ 현재',
   location: 'Seoul, Korea',
   summary:
-    'AI 플랫폼 개발 진행간 필요한 기능들을 개발하였으며, RAG 지식 서비스, MCP Proxy, DB 접근제어 엔진을 단기간에 프로덕션 수준으로 끌어올렸습니다.',
+    '쿼리 분석과 데이터 접근제어를 중심으로 RAG 지식 서비스, MCP Proxy, DB 접근제어 엔진의 핵심 기능을 프로덕션 수준으로 개발했습니다.',
   badges: ['AI Platform', 'Security', 'Rapid Delivery'],
   projects: [
     {
+      id: 'query-analysis',
+      title: 'Query Analysis & Data Access Control',
+      period: '2025.12 ~ 현재',
+      summary:
+        '쿼리 분석 영역의 주 담당자로 핵심 접근제어 기능을 구현하고, 기능 딜리버리와 스프린트 운영까지 함께 책임지고 있습니다.',
+      highlights: [
+        'ANSI SQL AST로 CTE, JOIN, Subquery, Alias의 원본 테이블·컬럼을 추적해 벤더별 전용 파서 없이도 마스킹 정책을 적용했습니다.',
+        '무효한 WHERE 조건과 DynamoDB PartiQL의 Partition Key 조건을 분석해 Scan 위험을 판별하고 차단·경고·Pagination 제한 기능을 구현했습니다.',
+        'JSON Manifest와 재사용 가능한 Playwright Flow로 버전·마이그레이션·회귀 E2E Suite를 자동화해 개발 테스트를 QA까지 재사용할 수 있도록 했습니다.',
+        '주요 고객 계약에 직결된 핵심 기능을 담당하면서 기능 누락 점검, 업무 배분, 스프린트 진행 관리를 함께 수행했습니다.'
+      ],
+      stack: ['C#', '.NET', 'ANSI SQL', 'PartiQL', 'DynamoDB', 'TypeScript', 'Playwright Test']
+    },
+    {
       id: 'rag',
       title: 'QueryPie AI - RAG / Knowledge Platform',
-      period: '2025.07 ~ 현재',
+      period: '2025.07 ~ 2025.11',
       summary: 'PL과 IC를 겸하며 1달 3주 만에 지식 기반 RAG 서비스를 첫 배포까지 끌어올린 프로젝트.',
       highlights: [
         '문서 업로드 - 파싱 - Chunking - 임베딩 파이프라인을 설계하고 전 구간을 직접 구현했습니다.',
@@ -74,11 +88,23 @@ const querypieEn: CareerStage = {
   ...querypieKo,
   period: 'Feb 2025 – Present',
   summary:
-    'Developed necessary features during AI platform development, bringing RAG knowledge service, MCP Proxy, and DB access control engine to production level in a short time.',
+    'Built production-grade capabilities across query analysis and data access control, the RAG knowledge service, MCP Proxy, and the DB access control engine.',
   projects: [
     {
       ...querypieKo.projects[0],
-      period: 'Jul 2025 – Present',
+      period: 'Dec 2025 – Present',
+      summary:
+        'Own the query analysis area as its primary engineer while also driving feature delivery and sprint execution.',
+      highlights: [
+        'Used ANSI SQL ASTs to resolve source tables and columns across CTEs, JOINs, subqueries, and aliases, applying masking policies without requiring a dedicated parser for every vendor.',
+        'Analyzed ineffective WHERE clauses and DynamoDB PartiQL Partition Key conditions to detect Scan risks and implement blocking, warnings, and pagination limits.',
+        'Automated reusable version, migration, and regression E2E suites with JSON manifests and Playwright flows, allowing QA to reuse tests created during development.',
+        'Delivered critical features tied to major customer contracts while finding missing work, allocating tasks, and managing sprint progress.'
+      ]
+    },
+    {
+      ...querypieKo.projects[1],
+      period: 'Jul 2025 – Nov 2025',
       summary:
         'Acted as both PL and IC, bringing knowledge-based RAG service to first deployment in 1 month 3 weeks.',
       highlights: [
@@ -89,7 +115,7 @@ const querypieEn: CareerStage = {
       ]
     },
     {
-      ...querypieKo.projects[1],
+      ...querypieKo.projects[2],
       period: 'Apr 2025 – Jun 2025',
       summary:
         'Pioneered development of MCP protocol-interpreting Proxy and internal work agents/registry, currently patent pending.',
@@ -100,7 +126,7 @@ const querypieEn: CareerStage = {
       ]
     },
     {
-      ...querypieKo.projects[2],
+      ...querypieKo.projects[3],
       period: 'Feb 2025 – Mar 2025',
       summary: 'Maintained DB Proxy/Engine layer and expanded new protocols.',
       highlights: [

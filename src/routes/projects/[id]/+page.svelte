@@ -85,12 +85,13 @@
     return typeof result === 'string' ? result : '';
   }
   
-  const projectIds = ['ai', 'dndn', 'heybit', 'bp', 'newmatgo'];
+  const projectIds = ['query-analysis', 'ai', 'dndn', 'heybit', 'bp', 'newmatgo'];
   
   $: projectId = $page.params.id || '';
   $: currentIndex = projectIds.indexOf(projectId);
   
   const projectIconMap: Record<string, string> = {
+    'query-analysis': 'querypie',
     'ai': 'querypie',
     'dndn': 'dndn',
     'heybit': 'heybit',

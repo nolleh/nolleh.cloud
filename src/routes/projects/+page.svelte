@@ -8,9 +8,10 @@
   // Reactive translation helper
   $: translate = (key: string) => t(key, $locale);
   
-  const projectIds = ['ai', 'dndn', 'heybit', 'bp', 'newmatgo'];
+  const projectIds = ['query-analysis', 'ai', 'dndn', 'heybit', 'bp', 'newmatgo'];
   
   const projectIconMap: Record<string, string> = {
+    'query-analysis': 'querypie',
     'ai': 'querypie',
     'dndn': 'dndn',
     'heybit': 'heybit',
@@ -96,16 +97,14 @@
               </div>
             {/if}
             <div class="click-hint">
-              <p class="hint-text">클릭하여 상세 정보 보기</p>
-              <p class="hint-text-en">Click to view details</p>
+              <p class="hint-text">{translate('projects.clickHint')}</p>
             </div>
           </div>
         </div>
       {:else}
         <div class="empty-state">
           <div class="empty-icon">👈</div>
-          <p class="empty-text">프로젝트에 마우스를 올려보세요</p>
-          <p class="empty-text-en">Hover over a project to see details</p>
+          <p class="empty-text">{translate('projects.emptyState')}</p>
         </div>
       {/if}
     </div>
@@ -430,13 +429,6 @@
     margin: 0.5rem 0;
   }
   
-  .empty-text-en {
-    font-size: 1rem;
-    font-weight: 400;
-    opacity: 0.6;
-    margin: 0.5rem 0;
-  }
-  
   .hover-preview {
     max-height: 60vh;
     overflow-y: auto;
@@ -453,13 +445,6 @@
     font-size: 0.875rem;
     font-weight: 500;
     color: rgba(255, 255, 255, 0.5);
-    margin: 0.25rem 0;
-  }
-  
-  .hint-text-en {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.4);
     margin: 0.25rem 0;
   }
   

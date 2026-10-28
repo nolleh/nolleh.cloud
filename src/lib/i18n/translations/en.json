@@ -81,6 +81,8 @@
   },
   "projects": {
     "title": "Projects",
+    "clickHint": "Click to view details",
+    "emptyState": "Hover over a project to see details",
     "details": {
       "period": "Period",
       "role": "Role",
@@ -89,11 +91,21 @@
       "contribution": "Contribution",
       "technologies": "Technologies",
       "achievements": "Achievements",
+      "query-analysis": {
+        "title": "Query Analysis & Data Access Control",
+        "period": "Dec 2025–Present",
+        "role": "Core IC · Primary Query Analysis Engineer · Feature Delivery/Sprint Coordination",
+        "overview": "AST-based query analysis for data masking, risky-query controls, and cloud cost protection",
+        "description": "",
+        "contribution": "ANSI SQL analysis and source resolution, masking policy enforcement, Scan detection and blocking, declarative E2E test platform, critical contract delivery and sprint coordination",
+        "technologies": "C#, .NET, AST, ANSI SQL, PartiQL, DynamoDB, TypeScript, Playwright Test, JSON Manifest",
+        "achievements": "Extended shared access controls across database vendors, prevented query execution and AWS cost risks, automated reusable version and migration and regression suites, delivered critical features tied to major customer contracts"
+      },
       "ai": {
-        "title": "AI Project",
-        "period": "2025.04~",
-        "role": "PL/IC",
-        "overview": "Development of knowledge-based service",
+        "title": "RAG / Knowledge Platform",
+        "period": "Jul 2025–Nov 2025",
+        "role": "RAG PL · Core IC",
+        "overview": "Built a RAG knowledge platform for organization-specific knowledge sources",
         "description": "Development of knowledge-based service.",
         "contribution": "PL, RAG: 100%, knowledge api: 20%",
         "technologies": "Python, FastApi, Celery, Kotlin, Spring, MSA, SQS",
@@ -102,12 +114,12 @@
       "dndn": {
         "title": "Dndn",
         "period": "2023.11~2025.01",
-        "role": "PL/Architector/IC",
-        "overview": "Robo advisor trading system development",
+        "role": "Project Lead · Software Architect · Core IC",
+        "overview": "Rebuilt a batch investment system as an Account-centered, event-driven robo-advisor platform",
         "description": "",
-        "contribution": "PL, Architector 100%, Controller, Rebalancer, Trader, Exchanger 100%",
+        "contribution": "Led the architecture, service boundaries, core service and shared-module implementation, and production rollout",
         "technologies": "Spring, Kotlin, R2DBC, H2, TDD, Kafka, System Design, MySQL",
-        "achievements": "Built new system overcoming limitations of existing batch system, implemented trading system, implemented advisory (approval) system"
+        "achievements": "Built a new Account-centered, event-driven investment system to replace the legacy batch architecture, including trading and investment-advisory approval systems, eliminating timing-based account-state inconsistencies"
       },
       "heybit": {
         "title": "Heybit",

@@ -1,25 +1,45 @@
-# Robo Advisor Trading Service
+# Account Event-Driven Robo-Advisor Investment Platform
 
-Developed a robo advisor trading service that passed RATB, a profitability indicator for stock trading.
+As the project lead and a core individual contributor for DNDN, I worked with a team of approximately eight engineers to rebuild an error-prone batch investment system as an **account event-driven robo-advisor platform**.
 
-The existing service was batch-based and couldn't properly handle HTS events that occurred freely outside the app, causing various errors. To solve this, I was internally scouted as someone who could resolve this among existing in-house personnel (As `PL`). Heybit -> dndn
+The legacy system triggered batch jobs when deposit events arrived, but investments were processed later using the account state available at batch execution time. If additional deposits, withdrawals, or asset changes occurred through the HTS in the meantime, the original event assumptions no longer matched the actual account state. This timing gap repeatedly caused processing and operational errors.
 
-The main services of the newly architected project were Feeder, Controller, Rebalancer, Trader, and Exchanger, each architected and implemented to perform roles corresponding to their names (Single Responsibility). Initially, except for Feeder, the remaining services were quickly implemented as monolithic, and migration to MSA for Single Responsibility was simply code migration and adding services to already well-established DevOps (since Uprise recognized foundational knowledge, I had some DevOps authority), so service separation was completed in `less than a day per service`. (This was before AI Code Assistant help)
+To solve this, I defined **Account as the central investment domain** and designed an architecture that consumes external account changes as Kafka events, then drives portfolio construction, rebalancing, and order execution according to each user's risk profile and selected strategy.
 
-The project involved approximately 8 developers.
+As PL, I led the problem definition, technical direction, service boundaries, and phased migration strategy. At the same time, as a core IC, I directly owned and implemented the **Account, Exchanger, Rebalancer, and Trader services**, as well as **shared modules for consistent event processing and service development**. This established a foundation that the entire team could build on and extend, and I remained responsible through the production rollout.
 
-## Key Points
-
-- Addressing issues where batch-based processing couldn't handle user HTS events that occurred between request time and processing time
-- Addressing issues where asset changes couldn't be properly handled due to asset changes between processing time and request time by building a new architecture
-- Processing according to various user account change events
-- Implementing rebalancing functionality for user asset portfolios
-- Implementing common modules to be used across services
+## Structural Problem Solved by the New System
 
 ```mermaid
-graph TD
-
-User(User)-->|User Account Management|Feeder-->Kafka[(Kafka)]-->Controller-->Exchanger-->Rebalancer-->Trader
-
+flowchart LR
+    subgraph Before["Before: events only triggered batch jobs"]
+        D[Deposit event] --> B[Trigger batch job]
+        B --> W[Wait for processing]
+        W --> S[Read account at execution time]
+        H[HTS account changes] --> S
+        S --> E[State no longer matches the event<br/>Processing errors]
+    end
 ```
 
+```mermaid
+flowchart LR
+    subgraph After["After: Account-centered event-driven investment processing"]
+        U[User account change] --> F[Feeder<br/>Collect account events]
+        F --> K[(Kafka<br/>Deliver events)]
+        K --> A[Account<br/>Process account events]
+        A --> X[Exchanger]
+        X --> R[Rebalancer<br/>Adjust strategy portfolio]
+        R --> T[Trader<br/>Execute orders]
+    end
+```
+
+## Role and Contributions
+
+- Led the architecture, implementation, and production rollout of a new system replacing the legacy batch architecture as PL for a team of approximately eight engineers
+- Identified the account-state inconsistency inherent in delayed batch processing and designed the event-driven architecture
+- Defined the Account-centered investment domain and service responsibilities
+- Owned and implemented Account, Exchanger, Rebalancer, and Trader as a core IC
+- Designed and implemented shared modules to improve consistency and productivity across services
+- Built the flow from account events through strategy-based portfolio construction, rebalancing, and order execution
+- Implemented the trading system and investment-advisory approval system
+- Validated the domain quickly, then migrated to MSA using service boundaries designed from the outset
