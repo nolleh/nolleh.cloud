@@ -15,6 +15,16 @@ Directly developed game content. In this process, multiple MSA servers were deve
 
 There were 3 backend developers including myself, and since I was also responsible for the SDK (For Unity), I handled platform communication in addition to communicating content logic with other team members.
 
+## Game Screens
+
+![BrownDust Puzzle castle, world, and stage selection screens](/projects/bp/lobby.png)
+
+*Lobby and content entry screens spanning the castle, world, and stage map*
+
+![BrownDust Puzzle character presentation and 3-match battle screen](/projects/bp/ingame.jpg)
+
+*BrownDust character presentation and the 3-match puzzle battle*
+
 ## Key Points
 
 - `Automatically generated SDK methods by analyzing server code (Roslyn Code Analysis)`, Unity game developers could communicate with servers by attaching the SDK to Unity and calling provided methods
@@ -59,6 +69,4 @@ subgraph BpServer
 
 end
 ```
-
-<!-- ![](../bp/lobby.png) -->
 

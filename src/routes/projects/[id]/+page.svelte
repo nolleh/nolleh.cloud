@@ -474,6 +474,14 @@
     width: 100%;
     height: auto;
   }
+
+  .markdown-body :global(img) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1.5rem auto 0.75rem;
+    border-radius: 12px;
+  }
   
   .markdown-body :global(p) {
     margin: 0 0 1.5rem 0;
