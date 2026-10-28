@@ -94,7 +94,7 @@
       "query-analysis": {
         "title": "쿼리 분석 및 데이터 접근제어",
         "period": "2025.12~",
-        "role": "핵심 IC · 쿼리 분석 주 담당 · 기능 딜리버리/스프린트 운영",
+        "role": "Core IC · Primary Query Analysis Engineer · Feature Delivery / Sprint Coordination",
         "overview": "AST 기반 쿼리 분석으로 데이터 마스킹, 위험 쿼리 통제 및 클라우드 비용 보호 기능 제공",
         "description": "",
         "contribution": "ANSI SQL 분석 및 데이터 소스 추적, 마스킹 정책 적용, Scan 탐지·차단, 선언형 E2E 테스트 플랫폼 구축, 주요 계약 기능 딜리버리와 스프린트 운영",
